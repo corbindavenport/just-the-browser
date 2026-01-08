@@ -1,20 +1,22 @@
 # Just the Browser
 
-Just the Browser is a tool for removing telemetry data reporting, AI features, product integrations, and sponsored content from desktop web browsers. The goal is to give you "just the browser" with a more streamlined experience, using policy settings intended for corporations and other organizations.
+Just the Browser helps you remove telemetry data reporting, AI features, product integrations, and sponsored content from desktop web browsers. The goal is to give you "just the browser" with a more streamlined experience, without resorting to alternative web browsers.
 
-This project is in early development, and currently only supports Firefox on Mac and Linux. You can check out the [GitHub repository](https://github.com/corbindavenport/just-the-browser) to contribute or look at the code.
+This project includes configuration files for popular web browsers, and a script to install them for you. The [GitHub repository](https://github.com/corbindavenport/just-the-browser) includes the code, resources for contributing, and the configuration files.
 
 ![Screenshot of Firefox settings installation on Mac](screen.png)
 
 ## Get started
 
-On Mac or desktop Linux, open the Terminal application and paste this command:
+The setup script can do everything for you in a few clicks. You can also follow the manual guides for [Firefox](firefox/README.md).
+
+**Mac and Linux:** open the Terminal application and run the below command:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/main.sh)"
 ```
 
-Windows is not yet supported.
+Windows: Not yet supported!
 
 ## Download web browsers
 
@@ -45,18 +47,3 @@ Not sure which link to use? Try the [official download page](https://www.firefox
 - [Windows 64-bit ARM (ARM64)](https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/69576d62-e76d-46d8-aa3a-35aca0a545c3/MicrosoftEdgeEnterpriseARM64.msi)
 
 Not sure which link to use? Try the [official download page](https://www.microsoft.com/en-us/edge/download).
-
-## Browser modifications
-
-Just the Browser uses group policy settings to change the behavior of web browsers. Firefox settings are applied with a [policies JSON file](https://mozilla.github.io/policy-templates/), and you can check the status by opening the `about:policies` page.
-
-### Mozilla Firefox
-
-| Feature | Information |
-| ------- | ----------- |
-| [DisableFirefoxStudies](https://mozilla.github.io/policy-templates/#disablefirefoxstudies) | Prevents Firefox from enrolling in [Studies](https://support.mozilla.org/en-US/kb/shield), which may involve additional analytics reporting. |
-| [DisableTelemetry](https://mozilla.github.io/policy-templates/#disabletelemetry) | Prevents the upload of telemetry data. As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well. |
-| [DontCheckDefaultBrowser](https://mozilla.github.io/policy-templates/#dontcheckdefaultbrowser) | Prevents popup warnings about Firefox not being the default browser. |
-| [FirefoxHome](https://mozilla.github.io/policy-templates/#firefoxhome) | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
-| [GenerativeAI](https://mozilla.github.io/policy-templates/#generativeai) | Turns off all generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
-| [SearchEngines](https://mozilla.github.io/policy-templates/#searchengines) | Removes Perplexity AI as a default search engine. |

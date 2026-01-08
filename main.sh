@@ -2,7 +2,7 @@
 
 OS=$(uname)
 BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/"
-FIREFOX_SETTINGS="$BASEURL/settings/firefox.json"
+FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
 
 # Confirm that sudo access is available
 _confirm_sudo() {
