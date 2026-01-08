@@ -2,19 +2,19 @@
 
 Just the Browser is a tool for removing telemetry data reporting, AI features, product integrations, and sponsored content from desktop web browsers. The goal is to give you "just the browser" with a more streamlined experience, using policy settings intended for corporations and other organizations.
 
-This project is in early development, aiming to support popular web browsers on Windows, Mac, and Linux. You can check out the [GitHub repository](https://github.com/corbindavenport/just-the-browser) to contribute or look at the code.
+This project is in early development, and currently only supports Firefox on Mac and Linux. You can check out the [GitHub repository](https://github.com/corbindavenport/just-the-browser) to contribute or look at the code.
 
 ![Screenshot of Firefox settings installation on Mac](screen.png)
 
 ## Get started
 
-On Mac, open the Terminal application and paste this command:
+On Mac or desktop Linux, open the Terminal application and paste this command:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/main.sh)"
 ```
 
-Linux and Windows are not yet supported.
+Windows is not yet supported.
 
 ## Download web browsers
 
