@@ -47,3 +47,39 @@ Not sure which link to use? Try the [official download page](https://www.firefox
 - [Windows 64-bit ARM (ARM64)](https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/69576d62-e76d-46d8-aa3a-35aca0a545c3/MicrosoftEdgeEnterpriseARM64.msi)
 
 Not sure which link to use? Try the [official download page](https://www.microsoft.com/en-us/edge/download).
+
+# Questions and answers
+
+Got a question? Check here first.
+
+### Why does this project exist?
+
+Most web browsers now include brand integrations, shopping features, generative AI models that cause [performance problems or decreased battery life](https://www.neowin.net/news/mozilla-under-fire-for-firefox-ai-bloat-that-blows-up-cpu-and-drains-battery/), sponsored content, and other distractions from the core browsing experience. Just the Browser helps you disable these features and get "just the browser," with detailed guides and an automated setup script.
+
+### What features or settings are changed?
+
+Just the Browser aims to remove the following functionality from popular web browsers:
+
+- **Most AI features**: Features that use generative AI models, either on-device or in the cloud, like Copilot in Microsoft Edge or tab group suggestions in Firefox. The main exception is [page translation in Firefox](https://support.mozilla.org/en-US/kb/website-translation). 
+- **Shopping features:** Price tracking, coupon codes, [loan integrations](https://www.windowscentral.com/edge-integrating-buy-now-pay-later-predatory-and-disappointing), etc.
+- **Sponsored or third-party content:** Suggested articles on the New Tab Page, sponsored site suggestions, etc.
+- **Default browser reminders:** Pop-ups or other prompts that ask you to change the default web browser.
+- **Telemetry:** Data collection by web browsers. This data is [usually anonymized](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/index.html) and not a privacy risk, but Just the Browser turns it off regardless.
+
+Some web browsers have additional features that could be considered "bloatware," but the default settings for Just the Browser sticks to those categories.
+
+### Can I change or revert the changes later?
+
+Yes. The browser guides include steps for removing the changes or modifying them. The automated script can also remove the settings.
+
+### Is this modifying the web browser?
+
+No. Just the Browser uses [group policies](https://en.wikipedia.org/wiki/Group_Policy) that are fully supported by web browsers, usually intended for IT departments in companies or other large organizations. No applications or executable files are modified in any way.
+
+### Do the settings stay applied?
+
+The custom settings stay applied as long as the policy features remain supported, but web browsers occasionally add, remove, or replace their policy options. You can check the browser guides or run the setup script again to get the latest configurations.
+
+### Why not just use an alternative web browser?
+
+You can do that! However, switching to alternative web browsers like Vivaldi, SeaMonkey, Waterfox, or LibreWolf can have other downsides. They are not always available on the same platforms, and they can lag behind mainstream browsers in security updates and engine upgrades. Just the Browser aims to make mainstream web browsers more tolerable, while still retaining their existing benefits.

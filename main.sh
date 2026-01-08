@@ -50,17 +50,17 @@ _main() {
         options+=("Mozilla Firefox: Remove settings")
     elif [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app" ]; then
         # Mac without Firefox settings
-        options+=("Mozilla Firefox: Add settings")
+        options+=("Mozilla Firefox: Update settings")
     elif [ "$OS" = "Linux" ] && [ -x "$(command -v firefox)" ]; then
         # Linux PC without Firefox settings
-        options+=("Mozilla Firefox: Add settings")
+        options+=("Mozilla Firefox: Update settings")
     fi
     # Add exit option
     options+=("Exit")
     # Show main menu
     echo -e "\nJust the Browser on $OS\n====================\n\nSelect an option by typing the number, then pressing Return/Enter on your keyboard to confirm.\n\nYou will need to restart your browser for changes to take effect.\n"
     select choice in "${options[@]}"; do
-        if [ "$choice" = "Mozilla Firefox: Add settings" ]; then
+        if [ "$choice" = "Mozilla Firefox: Update settings" ]; then
             _install_firefox
         elif [ "$choice" = "Mozilla Firefox: Remove settings" ]; then
             _uninstall_firefox
