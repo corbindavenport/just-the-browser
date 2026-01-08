@@ -1,3 +1,7 @@
+```
+This website and script is still in early development!
+```
+
 # Just the Browser
 
 Just the Browser helps you remove telemetry data reporting, AI features, product integrations, and sponsored content from desktop web browsers. The goal is to give you "just the browser" with a more streamlined experience, without resorting to alternative web browsers.
