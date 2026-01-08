@@ -80,6 +80,10 @@ No. Just the Browser uses [group policies](https://en.wikipedia.org/wiki/Group_P
 
 The custom settings stay applied as long as the policy features remain supported, but web browsers occasionally add, remove, or replace their policy options. You can check the browser guides or run the setup script again to get the latest configurations.
 
+### Why does my browser now say it's managed by an organization?
+
+The group policy settings used by Just the Browser are intended for PCs managed by companies and other large organizations. Browsers like Microsoft Edge and Firefox will display a message like "Your browser is being managed by your organization" to explain why some settings are disabled.
+
 ### Why not just use an alternative web browser?
 
 You can do that! However, switching to alternative web browsers like Vivaldi, SeaMonkey, Waterfox, or LibreWolf can have other downsides. They are not always available on the same platforms, and they can lag behind mainstream browsers in security updates and engine upgrades. Just the Browser aims to make mainstream web browsers more tolerable, while still retaining their existing benefits.
