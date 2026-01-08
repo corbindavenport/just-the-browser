@@ -1,0 +1,11 @@
+{
+  "policies": {
+    "GenerativeAI": {
+      "Enabled": false
+    },
+    "FirefoxHome": {
+      "Stories": false,
+      "SponsoredStories": false
+    }
+  }
+}
