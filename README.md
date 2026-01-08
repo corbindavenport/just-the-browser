@@ -1,6 +1,6 @@
 # Just the Browser
 
-Just the Browser is a tool for removing product integrations, AI features, and other non-essential functionality from desktop web browsers. The goal is to give you 'just the browser' and nothing else, without resorting to alternative web browsers with slower security patches or other drawbacks.
+Just the Browser is a tool for removing product integrations, AI features, and other non-essential functionality from desktop web browsers. The goal is to give you "just the browser" and nothing else, using policy settings intended for corporations and other organizations.
 
 This project is in early development, initially targeting Windows and macOS. You can check out the [GitHub repository](https://github.com/corbindavenport/just-the-browser) to contribute or look at the code.
 
