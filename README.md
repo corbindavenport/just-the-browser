@@ -14,13 +14,16 @@ This project includes configuration files for popular web browsers, and a script
 
 The setup script can do everything for you in a few clicks. You can also follow the manual guides for [Firefox](firefox/README.md).
 
-**Mac and Linux:** open the Terminal application and run the below command:
+**Windows:** Open a PowerShell prompt as Administrator. You can do this by right-clicking the Windows button in the taskbar, then selecting the "Terminal (Admin)" or "PowerShell (Admin) menu option. Next, run the script:
+```
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/main.ps1")))
+```
+
+**Mac and Linux:** Open the Terminal application and run the below command:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/main.sh)"
 ```
-
-Windows: Not yet supported!
 
 ## Download web browsers
 
