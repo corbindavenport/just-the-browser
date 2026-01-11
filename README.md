@@ -8,11 +8,9 @@ Just the Browser helps you remove AI features, telemetry data reporting, sponsor
 
 This project includes configuration files for popular web browsers, documentation for installing and modifying them, and easy installation scripts. Everything is [open-source on GitHub](https://github.com/corbindavenport/just-the-browser).
 
-![Screenshot of Firefox settings installation on Mac](screen.png)
-
 ## Get started
 
-The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Firefox](firefox/README.md).
+The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Firefox](firefox/README.md) or [Microsoft Edge](edge/README.md).
 
 **Windows:** Open a PowerShell prompt as Administrator. You can do this by right-clicking the Windows button in the taskbar, then selecting the "Terminal (Admin)" or "PowerShell (Admin)" menu option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
 ```
@@ -61,10 +59,6 @@ Not sure which link to use? Try the [official download page](https://www.microso
 
 Got a question? Check here first.
 
-### Why does this project exist?
-
-Most web browsers now include brand integrations, shopping features, generative AI models that cause [performance problems or decreased battery life](https://www.neowin.net/news/mozilla-under-fire-for-firefox-ai-bloat-that-blows-up-cpu-and-drains-battery/), sponsored content, and other distractions from the core browsing experience. Just the Browser aims to remove as much of this functionality as possible with pre-made browser configurations, simple guides, and automatic installation scripts.
-
 ### What features or settings are changed?
 
 Just the Browser aims to remove the following functionality from popular web browsers:
@@ -73,7 +67,8 @@ Just the Browser aims to remove the following functionality from popular web bro
 - **Shopping features:** Price tracking, coupon codes, [loan integrations](https://www.windowscentral.com/edge-integrating-buy-now-pay-later-predatory-and-disappointing), etc.
 - **Sponsored or third-party content:** Suggested articles on the New Tab Page, sponsored site suggestions, etc.
 - **Default browser reminders:** Pop-ups or other prompts that ask you to change the default web browser.
-- **Telemetry:** Data collection by web browsers. This data is [usually anonymized](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/index.html) and not a privacy risk, but Just the Browser turns it off regardless.
+- **First-run experiences and data import prompts:** Browser welcome screens and their related prompts to import data automatically from other web browsers.
+- **Telemetry:** Data collection by web browsers. Crash reporting is left enabled if the browser (such as Firefox) supports it as a separate option.
 
 Some web browsers have additional features that could be considered "bloatware," but the default settings for Just the Browser sticks to those categories.
 
