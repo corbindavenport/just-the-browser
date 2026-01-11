@@ -125,7 +125,7 @@ _main() {
             _install_chrome
         elif [ "$choice" = "Google Chrome: Remove settings" ]; then
             _uninstall_chrome
-        if [ "$choice" = "Microsoft Edge: Update settings" ]; then
+        elif [ "$choice" = "Microsoft Edge: Update settings" ]; then
             _install_edge
         elif [ "$choice" = "Microsoft Edge: Remove settings" ]; then
             _uninstall_edge
