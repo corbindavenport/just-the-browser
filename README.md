@@ -55,7 +55,7 @@ Not sure which link to use? Try the [official download page](https://www.firefox
 
 Not sure which link to use? Try the [official download page](https://www.microsoft.com/en-us/edge/download).
 
-# Questions and answers
+## Questions and answers
 
 Got a question? Check here first.
 
