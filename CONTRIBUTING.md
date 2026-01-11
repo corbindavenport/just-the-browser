@@ -1,5 +1,13 @@
 # Contributing to Just the Browser
 
-This is a work in progress!
+Do you want to help improve Just the Browser? Here's what you need to know.
 
-The Windows version is a **PowerShell v5.1** script, so it can run out of the box on Windows 10 and later versions. The Linux/macOS version is a Bash script, tested on **Bash v3.2** (version bundled on macOS) and ideally compatible with all Bash-like shells.
+### Setup script
+
+The Windows script is a **PowerShell v5.1** script, so it can run out of the box on Windows 10 and later versions. If you are working on the script, please ensure you are not using PowerShell features or syntax from later versions (e.g. PowerShell 7/PowerShell Core).
+
+The Linux and macOS script is a Bash script. The baseline testing environment is the **Bash v3.2** shell bundled with macOS.
+
+### Configuration changes
+
+If you are contributing updates to the browser configuration settings, your changes should be syncronized across the configuration files for all platforms. For example, if you are adding a setting called `EnableExample` to Microsoft Edge, it should be added to `install.reg` for Windows systems and `edge.mobileconfig` for macOS.
