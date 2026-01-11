@@ -6,7 +6,7 @@ You can check which policies are applied in Firefox by navigating to the `about:
 
 ### Windows installation
 
-1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer.
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer.
 2. Open the File Explorer and find where the Firefox executable is installed. This should be `C:\Program Files\Mozilla Firefox` on most PCs.
 3. In the same directory as Firefox, create a new folder (New menu > Folder) called "distribution" without the quotes, if it does not already exist.
 4. Move the configuration file to the distribution folder, and make sure it is called "policies.json" (without the quotes).
@@ -18,7 +18,7 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 
 **Note:** You need to open Firefox at least one time before adding a configuration file, or macOS will identify Firefox as a damaged application.
 
-1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/firefox/policies.json) and save it (File > Save or `Command+S`) anywhere on your computer.
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (File > Save or `Command+S`) anywhere on your computer.
 2. Open your Applications folder and find the Firefox application. If Firefox is in the Dock, you can click it while holding the `Command` key to instantly show it in the Finder.
 3. Click on the Firefox app while holding the `Control` key (or right-click) and select 'Show Package Contents'.
 4. Go to Contents > Resources and create a new folder (File > New Folder) called "distribution" (without the quotes), if it does not already exist.
@@ -29,7 +29,7 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 
 ### Linux installation
 
-1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Desktop` to switch to the Desktop directory.
 3. Create the Firefox policies directory with this command: `sudo mkdir -p /etc/firefox/policies/`
 4. Copy the file to the new folder: `sudo cp ./policies.json /etc/firefox/policies/`

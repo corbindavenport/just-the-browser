@@ -1,7 +1,7 @@
 #Requires -RunAsAdministrator
 
 $OS = Get-CimInstance Win32_OperatingSystem
-$BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/"
+$BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
 $MicrosoftEdgeInstallRegistry = "$BaseURL/edge/install.reg"
 $MicrosoftEdgeUninstallRegistry = "$BaseURL/edge/uninstall.reg"
 $GoogleChromeInstallRegistry = "$BaseURL/chrome/install.reg"

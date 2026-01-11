@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OS=$(uname)
-BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/HEAD/"
+BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
