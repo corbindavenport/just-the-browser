@@ -19,10 +19,31 @@ _show_header() {
     echo -e "\nJust the Browser ($OS)\n========\n"
 }
 
+# Install Microsoft Edge settings
+_install_edge() {
+    _show_header
+    echo "Downloading configuration, please wait..."
+    # Download and open configuration file
+    curl -Lfs -o "$TMPDIR/edge.mobileconfig" "$MICROSOFT_EDGE_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    open "$TMPDIR/edge.mobileconfig"
+    open -b "com.apple.systempreferences"
+    # Prompt user to accept file
+    echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Microsoft Edge settings and click the Install button.\n\nIn older macOS versions with System Preferences, click Profiles and select Microsoft Edge settings.\n"
+    read -p "Enter/Return to continue."
+}
+
+# Remove Microsoft Edge settings
+_uninstall_edge() {
+    _show_header
+    open -b "com.apple.systempreferences"
+    echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Microsoft Edge settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    read -p "Enter/Return to continue."
+}
+
 # Install Firefox settings
 _install_firefox() {
     _show_header
-    echo "Please wait..."
+    echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
         mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
         curl -Lfs -o "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
@@ -50,12 +71,11 @@ _uninstall_firefox() {
 _main() {
     # Create list for menu options
     declare -a options=()
-    # Microsoft Edge without settings applied
+    # Microsoft Edge
     if [ "$OS" = "Darwin" ] && [ -e "/Applications/Microsoft Edge.app" ]; then
         options+=("Microsoft Edge: Update settings")
+        options+=("Microsoft Edge: Remove settings")
     fi
-    # Microsoft Edge with settings applied
-    # TODO
     # Firefox without settings applied
     if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app" ]; then
         options+=("Mozilla Firefox: Update settings")
@@ -76,6 +96,8 @@ _main() {
     select choice in "${options[@]}"; do
         if [ "$choice" = "Microsoft Edge: Update settings" ]; then
             _install_edge
+        elif [ "$choice" = "Microsoft Edge: Remove settings" ]; then
+            _uninstall_edge
         elif [ "$choice" = "Mozilla Firefox: Update settings" ]; then
             _install_firefox
         elif [ "$choice" = "Mozilla Firefox: Remove settings" ]; then
