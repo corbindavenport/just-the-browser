@@ -26,9 +26,6 @@
 		td:nth-child(1) {  
 			word-break: break-all;
 		}
-		footer {
-			border: none !important;
-		}
 	</style>
 	<![endif]-->
 	<!-- Analytics -->
@@ -53,24 +50,19 @@
 <body>
 
 	<header>
+		{% if title != "Just the Browser" %}
+			<nav>
+				<a href="/">Return to Home page</a>
+			</nav>
+		{% endif %}
 		<h1>{{ title }}</h1>
     </header>
 
 	<main>
 		{{ content | safe }}
-		<p class="notice">
-			<strong>Support Just the Browser</strong>
-			<br />
-			If you find this project useful, please donate to support continued development. It would mean a lot!
-			<br />
-			<br />
-			<a class="button" target="_blank" href="https://www.patreon.com/corbindavenport">Support via Patreon</a>
-			<a class="button" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=4SZVSMJKDS35J&lc=US&item_name=Just%20the%20Browser%20Donation&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">Donate via PayPal</a>
-			<a class="button" target="_blank" href="https://cash.app/$corbdav">Donate via Cash App</a>
-		</p>
 	</main>
 	<footer>
-		Just the Browser is a project by <a href="https://corbin.io/" target="_blank">Corbin Davenport</a>. It is <a href="https://github.com/corbindavenport/just-the-browser" target="_blank">open-source on GitHub</a> under the MIT license.
+		Just the Browser is a project by <a href="https://corbin.io/" target="_blank">Corbin Davenport</a>. The code, documentation, scripts, and website are <a href="https://github.com/corbindavenport/just-the-browser" target="_blank">open-source on GitHub</a> under the MIT license.
 	</footer>
 
 </body>
