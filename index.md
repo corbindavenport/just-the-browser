@@ -8,6 +8,8 @@ Just the Browser helps you remove AI features, telemetry data reporting, sponsor
 
 This project includes configuration files for popular web browsers, documentation for installing and modifying them, and easy installation scripts. Everything is [open-source on GitHub](https://github.com/corbindavenport/just-the-browser).
 
+<img alt="Just the Browser script on Windows and Mac." src="/media/screen.png" />
+
 ## Get started
 
 The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Google Chrome](/chrome), [Microsoft Edge](/edge), and [Firefox](/firefox).
