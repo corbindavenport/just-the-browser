@@ -4,7 +4,6 @@ Just the Browser helps you remove AI features, telemetry data reporting, sponsor
 
 This project includes configuration files for popular web browsers, documentation for installing and modifying them, and easy installation scripts. Everything is [open-source on GitHub](https://github.com/corbindavenport/just-the-browser).
 
-
 ![Screenshot of setup utility on Windows and macOS](screen.png)
 
 ## Get started
@@ -70,11 +69,15 @@ Just the Browser aims to remove the following functionality from popular web bro
 - **Telemetry:** Data collection by web browsers. Crash reporting is left enabled if the browser (such as Firefox) supports it as a separate option.
 - **Startup boost:** Features that allow web browsers to start with the operating system without explicit permission.
 
-Some web browsers have additional features that could be considered "bloatware," but the default settings for Just the Browser sticks to those categories.
+The exact list of features modified for each browser can be found on the pages for [Google Chrome](chrome/README.md), [Microsoft Edge](edge/README.md), and [Firefox](firefox/README.md).
 
 ### Can I change or revert the changes later?
 
 Yes. The browser guides include steps for removing the changes or modifying them. The automated script can also remove the settings.
+
+### Which web browsers are supported?
+
+Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. However, [Chrome on Linux](https://github.com/corbindavenport/just-the-browser/issues/2) and [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) are not currently supported.
 
 ### Is this modifying the web browser?
 
@@ -82,7 +85,7 @@ No. Just the Browser uses [group policies](https://en.wikipedia.org/wiki/Group_P
 
 ### Do the settings stay applied?
 
-The custom settings stay applied as long as the policy features remain supported, but web browsers occasionally add, remove, or replace their policy options. You can check the browser guides or run the setup script again to get the latest configurations.
+Yes, as long as the web browsers continue to support the settings used in the configuration files. Web browsers occasionally add, remove, or replace the settings options, so if the custom configuration breaks, try installing the latest available version.
 
 ### Does this install an ad blocker for me?
 
