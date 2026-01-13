@@ -3,23 +3,16 @@ const { JSDOM } = jsdom;
 
 // Eleventy configuration
 module.exports = function (eleventyConfig) {
-    // Ignore README.md
+    // Ignore source docs
     eleventyConfig.ignores.add("README.md");
-    // Add favicon to site
-    eleventyConfig.addPassthroughCopy({"media/favicon.ico": "."})
-    // Add media folder to site
+    eleventyConfig.ignores.add("CONTRIBUTING.md");
+    // Add favicon to root directory
+    eleventyConfig.addPassthroughCopy({"media/favicon.ico": "/favicon.ico"})
+    // Add media folder
     eleventyConfig.addPassthroughCopy("media");
     // Modify page contents
     eleventyConfig.addTransform("update-html", async function (content) {
         const dom = new JSDOM(content);
-        // Update table design
-        dom.window.document.querySelectorAll('table').forEach(function (el) {
-            el.classList.add('table');
-        });
-        // Fix header spacing in cards 
-        dom.window.document.querySelectorAll('.card-body h2, .card-body h3, .card-body h4, .card-body h5, .card-body h6').forEach(function (el) {
-            el.classList.add('mb-3');
-        });
         // Set target blank attributes for all external links
         dom.window.document.querySelectorAll('a').forEach(function (el) {
             // Change download links to buttons
