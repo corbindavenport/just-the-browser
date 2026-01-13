@@ -34,7 +34,7 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 ### Linux installation
 
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
-2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Desktop` to switch to the Desktop directory.
+2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Create the Firefox policies directory with this command: `sudo mkdir -p /etc/firefox/policies/`
 4. Copy the file to the new folder: `sudo cp ./policies.json /etc/firefox/policies/`
 5. Restart Firefox.
