@@ -84,7 +84,7 @@ _uninstall_firefox() {
         rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; return; }
     else
          _confirm_sudo
-        sudo rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; return; }
+        sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; return; }
     fi
     read -p "Removed Firefox settings. Press Enter/Return to continue."; return;
 }
