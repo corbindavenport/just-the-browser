@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OS=$(uname)
-BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
+BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
@@ -67,12 +67,13 @@ _install_firefox() {
     _show_header
     echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
+        echo "$FIREFOX_SETTINGS"
         mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
         curl -Lfs -o "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
     else
         _confirm_sudo
         sudo mkdir -p "/etc/firefox/policies/"
-        sudo curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; return; }
+        sudo curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
     fi
     read -p "Updated Firefox settings. Press Enter/Return to continue."
 }
@@ -81,10 +82,10 @@ _install_firefox() {
 _uninstall_firefox() {
     _show_header
     if [ "$OS" = "Darwin" ]; then
-        rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; return; }
+        rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
     else
          _confirm_sudo
-        sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; return; }
+        sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
     fi
     read -p "Removed Firefox settings. Press Enter/Return to continue."; return;
 }
