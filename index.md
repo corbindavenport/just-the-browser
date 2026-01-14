@@ -8,7 +8,7 @@ Just the Browser helps you remove AI features, telemetry data reporting, sponsor
 
 This project includes configuration files for popular web browsers, documentation for installing and modifying them, and easy installation scripts. Everything is [open-source on GitHub](https://github.com/corbindavenport/just-the-browser).
 
-<img alt="Just the Browser script on Windows and Mac" src="/media/screen.png" />
+<img alt="Just the Browser script on Windows and Mac" src="media/screen.png" />
 
 ## Get started
 
@@ -60,7 +60,7 @@ Not sure which link to use? Try the [official download page](https://www.microso
 
 ## Questions and answers
 
-Got a question? Check here first.
+Got a question? Check here first, and if you still need help, [create an issue on GitHub](https://github.com/corbindavenport/peek/issues) or [join the Discord](https://discord.com/invite/59wfy5cNHw).
 
 ### What features or settings are changed?
 
@@ -83,6 +83,10 @@ Yes. The browser guides include steps for removing the changes or modifying them
 ### Which web browsers are supported?
 
 Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. However, [Chrome on Linux](https://github.com/corbindavenport/just-the-browser/issues/2) and [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) are not currently supported.
+
+### Can I install this on my phone or tablet?
+
+Not yet. See the issues for [Android support](https://github.com/corbindavenport/just-the-browser/issues/4) and [iOS/iPadOS support](https://github.com/corbindavenport/just-the-browser/issues/5).
 
 ### Is this modifying the web browser?
 
