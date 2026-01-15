@@ -9,13 +9,14 @@ This project includes configuration files for popular web browsers, documentatio
 ## Install script
 
 **Windows:** Open a PowerShell prompt as Administrator. You can do this by right-clicking the Windows button in the taskbar, then selecting the "Terminal (Admin)" or "PowerShell (Admin)" menu option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
-```
+
+```powershell
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/main.ps1")))
 ```
 
 **Mac and Linux:** Search for the Terminal in your applications list and open it. Next, copy the below command, paste it into the window (`Ctrl+V` or `Cmd+V`), and press the Enter/Return key:
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/main.sh)"
 ```
 
@@ -31,7 +32,7 @@ This repository also includes the static site generator for [justthebrowser.com]
 
 With Node.js and NPM installed, you can test the site like this:
 
-```
+```shell
 npm install
 npx @11ty/eleventy --serve
 ```
