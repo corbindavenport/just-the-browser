@@ -28,7 +28,7 @@ To remove the custom configuration, open the Device Management settings (or Prof
 
 ### Browser settings
 
-These are the policy settings in the Just the Browser configuration file. 
+These are the policy settings in the Just the Browser configuration file.
 
 | Feature | Information |
 | ------- | ----------- |

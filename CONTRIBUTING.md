@@ -10,4 +10,4 @@ The Linux and macOS script is a Bash script. The baseline testing environment is
 
 ### Configuration changes
 
-If you are contributing updates to the browser configuration settings, your changes should be syncronized across the configuration files for all platforms. For example, if you are adding a setting called `EnableExample` to Microsoft Edge, it should be added to `install.reg` for Windows systems and `edge.mobileconfig` for macOS. The features also need to be listed in the `README.md` files for each browser.
+If you are contributing updates to the browser configuration settings, your changes should be synchronized across the configuration files for all platforms. For example, if you are adding a setting called `EnableExample` to Microsoft Edge, it should be added to `install.reg` for Windows systems and `edge.mobileconfig` for macOS. The features also need to be listed in the `README.md` files for each browser.

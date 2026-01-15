@@ -28,7 +28,7 @@ To remove the custom configuration, open the Device Management settings (or Prof
 
 ### Browser settings
 
-These are the policy settings in the Just the Browser configuration file. 
+These are the policy settings in the Just the Browser configuration file.
 
 | Feature | Information |
 | ------- | ----------- |
@@ -50,7 +50,7 @@ These are the policy settings in the Just the Browser configuration file.
 | CopilotPageContext | Blocks Copilot from accessing web page context. |
 | DefaultBrowserSettingEnabled | Prevents Edge from asking to be the default web browser in notifications. |
 | DefaultBrowserSettingsCampaignEnabled | Prevents prompt to set Bing as the default search engine, and Edge as the default web browser. |
-| DiagnosticData | Turns off all diangostic data reporting. |
+| DiagnosticData | Turns off all diagnostic data reporting. |
 | EdgeShoppingAssistantEnabled | Turns off shopping features such as price comparison, coupons, rebates, and express checkout. |
 | Microsoft365CopilotChatIconEnabled | Hides the Copilot button in the browser toolbar. |
 | ShowAcrobatSubscriptionButton | Hides the 'Edit with Acrobat' button when viewing PDFs. |

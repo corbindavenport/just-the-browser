@@ -43,7 +43,7 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 
 ### Browser settings
 
-These are the policy settings in the Just the Browser configuration file. 
+These are the policy settings in the Just the Browser configuration file.
 
 | Feature | Information |
 | ------- | ----------- |
