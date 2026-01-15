@@ -15,7 +15,7 @@ You can check which policies are applied in Google Chrome by navigating to the `
 3. Follow the prompts to install the registry keys to the Windows Registry.
 5. Restart Chrome.
 
-To remove the custom configuration, follow the same steps with the [registry file for uninstallation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/uninstall.reg). This will remove the modified registry keys from your system.
+To remove the custom configuration, follow the same steps with the [registry file for uninstallation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/uninstall.reg). This will remove the modified registry keys from your system.
 
 ### macOS installation
 
