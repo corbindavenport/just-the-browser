@@ -26,6 +26,16 @@ To remove the custom configuration, follow the same steps with the [registry fil
 
 To remove the custom configuration, open the Device Management settings (or Profiles pane) again, select the 'Google Chrome settings' configuration, and then click the remove (-) button.
 
+### Linux installation
+
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
+2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
+3. Create the Chrome policies directory with this command: `sudo mkdir -p /etc/opt/chrome/policies/managed`
+4. Copy the file to the new folder: `sudo cp ./managed_policies.json /etc/opt/chrome/policies/managed`
+5. Restart Chrome.
+
+To remove the custom configuration, delete the `policies.json` file from the distribution folder and restart Firefox. You can do that in the Terminal: `sudo rm /etc/opt/chrome/policies/managed/managed_policies.json`
+
 ### Browser settings
 
 These are the policy settings in the Just the Browser configuration file.
