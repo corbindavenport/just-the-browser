@@ -36,6 +36,8 @@
 			<false />
 			<key>DefaultBrowserSettingEnabled</key>
 			<false />
+			<key>DevToolsGenAiSettings</key>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
