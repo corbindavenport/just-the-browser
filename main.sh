@@ -32,12 +32,13 @@ _install_chrome() {
         open -b "com.apple.systempreferences"
         # Prompt user to accept file
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
     else
         _confirm_sudo
         sudo mkdir -p "/etc/opt/chrome/policies/managed"
         sudo curl -Lfs -o "/etc/opt/chrome/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        read -p "Installed Chrome settings. Press Enter/Return to continue."
     fi
-    read -p "Enter/Return to continue."
 }
 
 # Remove Google Chrome settings
@@ -46,11 +47,12 @@ _uninstall_chrome() {
     if [ "$OS" = "Darwin" ]; then
         open -b "com.apple.systempreferences"
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Google Chrome settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
     else
         _confirm_sudo
         sudo rm "/etc/opt/chrome/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+        read -p "Removed Chrome settings. Press Enter/Return to continue."
     fi
-    read -p "Enter/Return to continue."
 }
 
 # Install Microsoft Edge settings
@@ -63,7 +65,7 @@ _install_edge() {
     open -b "com.apple.systempreferences"
     # Prompt user to accept file
     echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Microsoft Edge settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
-    read -p "Enter/Return to continue."
+    read -p "Press Enter/Return to continue."
 }
 
 # Remove Microsoft Edge settings
@@ -71,7 +73,7 @@ _uninstall_edge() {
     _show_header
     open -b "com.apple.systempreferences"
     echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Microsoft Edge settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
-    read -p "Enter/Return to continue."
+    read -p "Press Enter/Return to continue."
 }
 
 # Install Firefox settings
