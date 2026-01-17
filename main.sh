@@ -5,6 +5,7 @@ BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
+CHROME_SETTINGS="$BASEURL/chrome/managed_policies.json"
 
 # Confirm that sudo access is available
 _confirm_sudo() {
@@ -24,20 +25,31 @@ _show_header() {
 _install_chrome() {
     _show_header
     echo "Downloading configuration, please wait..."
-    # Download and open configuration file
-    curl -Lfs -o "$TMPDIR/chrome.mobileconfig" "$GOOGLE_CHROME_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
-    open "$TMPDIR/chrome.mobileconfig"
-    open -b "com.apple.systempreferences"
-    # Prompt user to accept file
-    echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    if [ "$OS" = "Darwin" ]; then
+        # Download and open configuration file
+        curl -Lfs -o "$TMPDIR/chrome.mobileconfig" "$GOOGLE_CHROME_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        open "$TMPDIR/chrome.mobileconfig"
+        open -b "com.apple.systempreferences"
+        # Prompt user to accept file
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    else
+        _confirm_sudo
+        sudo mkdir -p "/etc/opt/chrome/policies/managed"
+        sudo curl -Lfs -o "/etc/opt/chrome/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    fi
     read -p "Enter/Return to continue."
 }
 
 # Remove Google Chrome settings
 _uninstall_chrome() {
     _show_header
-    open -b "com.apple.systempreferences"
-    echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Google Chrome settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    if [ "$OS" = "Darwin" ]; then
+        open -b "com.apple.systempreferences"
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Google Chrome settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    else
+        _confirm_sudo
+        sudo rm "/etc/opt/chrome/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    fi
     read -p "Enter/Return to continue."
 }
 
