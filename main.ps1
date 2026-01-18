@@ -100,11 +100,15 @@ function Uninstall-Edge {
 
 # Install Firefox settings
 function Install-Firefox {
+    Param(
+        [Parameter(Position= 0, Mandatory= $true)]
+        [String]$InstallPath
+    )
     Show-Header
-    Write-Host "Downloading configuration file, please wait..."
-    New-Item -ItemType Directory -Force -Path "$env:ProgramFiles\Mozilla Firefox\distribution" > $null
+    Write-Host "Detected Firefox installation directory: $InstallPath`n`nDownloading configuration file, please wait..."
+    New-Item -ItemType Directory -Force -Path "$InstallPath\distribution" > $null
     try {
-        Invoke-WebRequest $FirefoxSettings -OutFile "$env:ProgramFiles\Mozilla Firefox\distribution\policies.json"
+        Invoke-WebRequest $FirefoxSettings -OutFile "$InstallPath\distribution\policies.json"
         Read-Host -Prompt "Updated Firefox settings. Press Enter/Return to continue" | Out-Null
     }
     catch {
@@ -114,8 +118,13 @@ function Install-Firefox {
 
 # Remove Firefox settings
 function Uninstall-Firefox {
+    Param(
+        [Parameter(Position= 0, Mandatory= $true)]
+        [String]$InstallPath
+    )
     Show-Header
-    Remove-Item -Path "$env:ProgramFiles\Mozilla Firefox\distribution\policies.json" -Force
+    Write-Host "Detected Firefox installation directory: $InstallPath`n"
+    Remove-Item -Path "$InstallPath\distribution\policies.json" -Force
     Read-Host -Prompt "Removed Firefox settings. Press Enter/Return to continue" | Out-Null
 }
 
@@ -129,12 +138,14 @@ function Show-Menu {
             Action = { Install-Chrome }
         })
     # Google Chrome with settings applied
-    $GoogleChromeCheck = Start-Process "reg.exe" -WindowStyle hidden -ArgumentList 'query "HKLM\SOFTWARE\Policies\Google\Chrome" /v "AIModeSettings"' -Wait -PassThru
-    if ($GoogleChromeCheck.ExitCode -eq 0) {
-        $options.Add(@{
+    if (Test-Path "HKLM:\SOFTWARE\Policies\Google\Chrome") {
+        $GoogleChromeCheck = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "AIModeSettings" -ErrorAction SilentlyContinue
+        if ($null -ne $GoogleChromeCheck) {
+            $options.Add(@{
                 Label  = "Google Chrome: Remove settings"
                 Action = { Uninstall-Chrome }
             })
+        }
     }
     # Microsoft Edge without settings applied
     $options.Add(@{
@@ -142,26 +153,36 @@ function Show-Menu {
             Action = { Install-Edge }
         })
     # Microsoft Edge with settings applied
-    $MicrosoftEdgeCheck = Start-Process "reg.exe" -WindowStyle hidden -ArgumentList 'query "HKLM\SOFTWARE\Policies\Microsoft\Edge" /v "HideFirstRunExperience"' -Wait -PassThru
-    if ($MicrosoftEdgeCheck.ExitCode -eq 0) {
-        $options.Add(@{
+    if (Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge") {
+        $MicrosoftEdgeCheck = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "HideFirstRunExperience" -ErrorAction SilentlyContinue
+        if ($null -ne $MicrosoftEdgeCheck) {
+            $options.Add(@{
                 Label  = "Microsoft Edge: Remove settings"
                 Action = { Uninstall-Edge }
             })
+        }
     }
-    # Firefox without settings applied
-    if (Test-Path "$env:ProgramFiles\Mozilla Firefox") {
-        $options.Add(@{
+    # Mozilla Firefox
+    if (Test-Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox") {
+        # Find the current version installed, like: 147.0.1 (AArch64 en-US)
+        $FirefoxVersion = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox" -Name "CurrentVersion"
+        # Find the registry values for the specified version
+        if (Test-Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox\$FirefoxVersion\Main") {
+            # Finds the installation path, like: C:\Program Files\Mozilla Firefox
+            $FirefoxPath = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox\$FirefoxVersion\Main" -Name "Install Directory"
+            # Firefox without settings alreay applied
+            $options.Add(@{
                 Label  = "Mozilla Firefox: Update settings"
-                Action = { Install-Firefox }
+                Action = { Install-Firefox "$FirefoxPath" }
             })
-    }
-    # Firefox with settings already applied
-    if (Test-Path "$env:ProgramFiles\Mozilla Firefox\distribution\policies.json") {
-        $options.Add(@{
-                Label  = "Mozilla Firefox: Remove settings"
-                Action = { Uninstall-Firefox }
-            })
+            # Firefox with settings already applied
+            if (Test-Path "$FirefoxPath\distribution\policies.json") {
+                $options.Add(@{
+                        Label  = "Mozilla Firefox: Remove settings"
+                        Action = { Uninstall-Firefox "$FirefoxPath" }
+                    })
+            }
+        }
     }
     # Exit option
     $options.Add(@{
