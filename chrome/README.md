@@ -30,7 +30,7 @@ To remove the custom configuration, open the Device Management settings (or Prof
 
 These instructions work for both Chromium and Google Chrome. You can check what you're running by opening `chrome://version` and checking if it says "Chromium" or "Google Chrome" at the top-right corner of the page.
 
-1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "managed_policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Create the managed policies directory with one of the below commands.
     - For Google Chrome: `sudo mkdir -p /etc/opt/chrome/policies/managed`
