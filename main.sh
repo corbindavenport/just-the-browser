@@ -1,7 +1,14 @@
 #!/bin/bash
 
 OS=$(uname)
-BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+USE_LOCAL_FILES=false
+if [ -f "$SCRIPT_DIR/chrome/managed_policies.json" ]; then
+    BASEURL="$SCRIPT_DIR"
+    USE_LOCAL_FILES=true
+else
+    BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
+fi
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
@@ -12,6 +19,72 @@ _confirm_sudo() {
     if [ "$EUID" != 0 ]; then
         echo "Sudo access is required for this step."
         sudo echo "Sudo granted." || { echo "Exiting."; exit 1; }
+    fi
+}
+
+# Show a summary of settings per browser
+_show_chrome_changes() {
+    local header=${1:-"Applied Chrome policy bundle"}
+    cat <<EOF
+
+$header:
+- Disable AI features and AI-assisted tools
+- Disable translation prompts
+- Disable password manager and save prompts
+- Disable printing
+- Restore previous session on startup
+- Enable Do Not Track
+- Disable default browser prompts and use system DNS
+EOF
+}
+
+_show_edge_changes() {
+    local header=${1:-"Applied Edge policy bundle"}
+    cat <<EOF
+
+$header:
+- Disable AI features, shopping tools, and recommendations
+- Disable translation prompts
+- Disable password manager and save prompts
+- Disable printing
+- Restore previous session on startup
+- Enable Do Not Track
+- Reduce Microsoft promotions and content surfaces
+EOF
+}
+
+_show_firefox_changes() {
+    local header=${1:-"Applied Firefox policy bundle"}
+    cat <<EOF
+
+$header:
+- Disable telemetry, studies, and AI features
+- Disable translation prompts
+- Disable password saving and autofill
+- Disable printing
+- Restore previous session on startup
+- Enable Do Not Track and Global Privacy Control
+EOF
+}
+
+# Fetch config files locally or remotely
+_fetch_file() {
+    local source=$1
+    local destination=$2
+    local requires_sudo=$3
+
+    if [ "$USE_LOCAL_FILES" = true ]; then
+        if [ "$requires_sudo" = true ]; then
+            sudo cp "$source" "$destination"
+        else
+            cp "$source" "$destination"
+        fi
+    else
+        if [ "$requires_sudo" = true ]; then
+            sudo curl -Lfs -o "$destination" "$source"
+        else
+            curl -Lfs -o "$destination" "$source"
+        fi
     fi
 }
 
@@ -27,16 +100,18 @@ _install_chrome() {
     echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
         # Download and open configuration file
-        curl -Lfs -o "$TMPDIR/chrome.mobileconfig" "$GOOGLE_CHROME_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _fetch_file "$GOOGLE_CHROME_MAC_CONFIG" "$TMPDIR/chrome.mobileconfig" false || { read -p "Download failed! Press Enter/Return to continue."; return; }
         open "$TMPDIR/chrome.mobileconfig"
         open -b "com.apple.systempreferences"
         # Prompt user to accept file
-        echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section."
+        _show_chrome_changes "This profile configures"
         read -p "Press Enter/Return to continue."
     else
         _confirm_sudo
         sudo mkdir -p "/etc/opt/chrome/policies/managed"
-        sudo curl -Lfs -o "/etc/opt/chrome/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _fetch_file "$CHROME_SETTINGS" "/etc/opt/chrome/policies/managed/managed_policies.json" true || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _show_chrome_changes
         read -p "Installed Chrome settings. Press Enter/Return to continue."
     fi
 }
@@ -61,7 +136,8 @@ _install_chromium() {
     echo "Downloading configuration, please wait..."
     _confirm_sudo
     sudo mkdir -p "/etc/chromium/policies/managed"
-    sudo curl -Lfs -o "/etc/chromium/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    _fetch_file "$CHROME_SETTINGS" "/etc/chromium/policies/managed/managed_policies.json" true || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    _show_chrome_changes "Applied Chromium policy bundle"
     read -p "Installed Chromium settings. Press Enter/Return to continue."
 }
 
@@ -78,11 +154,12 @@ _install_edge() {
     _show_header
     echo "Downloading configuration, please wait..."
     # Download and open configuration file
-    curl -Lfs -o "$TMPDIR/edge.mobileconfig" "$MICROSOFT_EDGE_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    _fetch_file "$MICROSOFT_EDGE_MAC_CONFIG" "$TMPDIR/edge.mobileconfig" false || { read -p "Download failed! Press Enter/Return to continue."; return; }
     open "$TMPDIR/edge.mobileconfig"
     open -b "com.apple.systempreferences"
     # Prompt user to accept file
-    echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Microsoft Edge settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+    echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Microsoft Edge settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section."
+    _show_edge_changes "This profile configures"
     read -p "Press Enter/Return to continue."
 }
 
@@ -99,13 +176,15 @@ _install_firefox() {
     _show_header
     echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
-        mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
-        curl -Lfs -o "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _confirm_sudo
+        sudo mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
+        _fetch_file "$FIREFOX_SETTINGS" "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" true || { read -p "Download failed! Press Enter/Return to continue."; return; }
     else
         _confirm_sudo
         sudo mkdir -p "/etc/firefox/policies/"
-        sudo curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _fetch_file "$FIREFOX_SETTINGS" "/etc/firefox/policies/policies.json" true || { read -p "Download failed! Press Enter/Return to continue."; return; }
     fi
+    _show_firefox_changes
     read -p "Updated Firefox settings. Press Enter/Return to continue."
 }
 
@@ -113,7 +192,8 @@ _install_firefox() {
 _uninstall_firefox() {
     _show_header
     if [ "$OS" = "Darwin" ]; then
-        rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
+        _confirm_sudo
+        sudo rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
     else
          _confirm_sudo
         sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }

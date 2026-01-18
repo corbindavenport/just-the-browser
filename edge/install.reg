@@ -21,11 +21,16 @@ Windows Registry Editor Version 5.00
 "DefaultBrowserSettingsCampaignEnabled"=dword:00000000
 "DiagnosticData"=dword:00000000
 "EdgeShoppingAssistantEnabled"=dword:00000000
+"EnableDoNotTrack"=dword:00000001
 "Microsoft365CopilotChatIconEnabled"=dword:00000000
+"PasswordManagerEnabled"=dword:00000000
+"PrintingEnabled"=dword:00000000
+"RestoreOnStartup"=dword:00000001
 "ShowAcrobatSubscriptionButton"=dword:00000000
 "ShowMicrosoftRewards"=dword:00000000
 "ShowRecommendationsEnabled"=dword:00000000
 "TabServicesEnabled"=dword:00000000
 "TextPredictionEnabled"=dword:00000000
+"TranslateEnabled"=dword:00000000
 "VisualSearchEnabled"=dword:00000000
 "EdgeHistoryAISearchEnabled"=dword:00000000

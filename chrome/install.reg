@@ -11,3 +11,8 @@ Windows Registry Editor Version 5.00
 "BuiltInDnsClientEnabled"=dword:00000000
 "DefaultBrowserSettingEnabled"=dword:00000000
 "DevToolsGenAiSettings"=dword:00000002
+"EnableDoNotTrack"=dword:00000001
+"PasswordManagerEnabled"=dword:00000000
+"PrintingEnabled"=dword:00000000
+"RestoreOnStartup"=dword:00000001
+"TranslateEnabled"=dword:00000000

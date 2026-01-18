@@ -60,6 +60,11 @@ These are the policy settings in the Just the Browser configuration file.
 | BuiltInDnsClientEnabled | Forces Chrome to use the host operating system's DNS client instead of the built-in DNS client. This has no effect when using DNS-over-HTTPS. |
 | DefaultBrowserSettingEnabled | Prevents Chrome from checking if it's the default browser and showing notifications about it. |
 | DevToolsGenAiSettings | Turns off debugging in the Dev Tools powered by generative AI models. |
+| EnableDoNotTrack | Sends the Do Not Track header with web requests. |
+| PasswordManagerEnabled | Disables the built-in password manager and save password prompts. |
+| PrintingEnabled | Disables printing and the print dialog. |
+| RestoreOnStartup | Restores the previous session after a browser restart. |
+| TranslateEnabled | Disables the built-in translation prompts and features. |
 
 ### Documentation
 

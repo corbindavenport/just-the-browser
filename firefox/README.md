@@ -49,9 +49,11 @@ These are the policy settings in the Just the Browser configuration file.
 | ------- | ----------- |
 | `DisableFirefoxStudies` | Prevents Firefox from enrolling in [Studies](https://support.mozilla.org/en-US/kb/shield), which may involve additional analytics reporting. |
 | `DisableTelemetry` | Prevents the upload of telemetry data. As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well. |
+| `DisablePrint` | Disables printing and the print dialog. |
 | `DontCheckDefaultBrowser` | Prevents popup warnings about Firefox not being the default browser. |
 | `FirefoxHome` | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
 | `GenerativeAI` | Turns off all generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
+| `Preferences` | Locks Do Not Track, Global Privacy Control, restores the previous session, disables translations, and blocks saving passwords. |
 | `SearchEngines` | Removes Perplexity AI as a default search engine. |
 
 ### Documentation

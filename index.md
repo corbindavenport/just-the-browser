@@ -64,15 +64,20 @@ Got a question? Check here first, and if you still need help, [create an issue o
 
 ### What features or settings are changed?
 
-Just the Browser aims to remove the following functionality from popular web browsers:
+Just the Browser aims to remove or adjust the following functionality from popular web browsers:
 
-- **Most AI features**: Features that use generative AI models, either on-device or in the cloud, like Copilot in Microsoft Edge or tab group suggestions in Firefox. The main exception is [page translation in Firefox](https://support.mozilla.org/en-US/kb/website-translation). 
+- **Most AI features**: Features that use generative AI models, either on-device or in the cloud, like Copilot in Microsoft Edge or tab group suggestions in Firefox.
 - **Shopping features:** Price tracking, coupon codes, [loan integrations](https://www.windowscentral.com/edge-integrating-buy-now-pay-later-predatory-and-disappointing), etc.
 - **Sponsored or third-party content:** Suggested articles on the New Tab Page, sponsored site suggestions, etc.
 - **Default browser reminders:** Pop-ups or other prompts that ask you to change the default web browser.
 - **First-run experiences and data import prompts:** Browser welcome screens and their related prompts to import data automatically from other web browsers.
 - **Telemetry:** Data collection by web browsers. Crash reporting is left enabled if the browser (such as Firefox) supports it as a separate option.
 - **Startup boost:** Features that allow web browsers to start with the operating system without explicit permission.
+- **Translation prompts:** Built-in translation prompts and features in supported browsers.
+- **Password saving:** Built-in password managers and save password prompts.
+- **Printing:** The built-in printing dialog and print integration.
+- **Session restore:** Restores the previous session after a browser restart.
+- **Privacy signals:** Sends Do Not Track and Global Privacy Control signals where supported.
 
 The exact list of features modified for each browser can be found on the pages for [Google Chrome](/chrome), [Microsoft Edge](/edge), and [Firefox](/firefox).
 

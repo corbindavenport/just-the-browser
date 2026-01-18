@@ -58,8 +58,16 @@
             <integer>0</integer>
             <key>EdgeShoppingAssistantEnabled</key>
             <false/>
+            <key>EnableDoNotTrack</key>
+            <true/>
             <key>Microsoft365CopilotChatIconEnabled</key>
             <false/>
+            <key>PasswordManagerEnabled</key>
+            <false/>
+            <key>PrintingEnabled</key>
+            <false/>
+            <key>RestoreOnStartup</key>
+            <integer>1</integer>
             <key>ShowAcrobatSubscriptionButton</key>
             <false/>
             <key>ShowMicrosoftRewards</key>
@@ -69,6 +77,8 @@
             <key>TabServicesEnabled</key>
             <false/>
             <key>TextPredictionEnabled</key>
+            <false/>
+            <key>TranslateEnabled</key>
             <false/>
             <key>VisualSearchEnabled</key>
             <false/>

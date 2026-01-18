@@ -8,5 +8,10 @@
   "TabCompareSettings": 2,
   "BuiltInDnsClientEnabled": false,
   "DefaultBrowserSettingEnabled": false,
-  "DevToolsGenAiSettings": 2
+  "DevToolsGenAiSettings": 2,
+  "EnableDoNotTrack": true,
+  "PasswordManagerEnabled": false,
+  "PrintingEnabled": false,
+  "RestoreOnStartup": 1,
+  "TranslateEnabled": false
 }

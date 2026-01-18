@@ -52,12 +52,17 @@ These are the policy settings in the Just the Browser configuration file.
 | DefaultBrowserSettingsCampaignEnabled | Prevents prompt to set Bing as the default search engine, and Edge as the default web browser. |
 | DiagnosticData | Turns off all diagnostic data reporting. |
 | EdgeShoppingAssistantEnabled | Turns off shopping features such as price comparison, coupons, rebates, and express checkout. |
+| EnableDoNotTrack | Sends the Do Not Track header with web requests. |
 | Microsoft365CopilotChatIconEnabled | Hides the Copilot button in the browser toolbar. |
+| PasswordManagerEnabled | Disables the built-in password manager and save password prompts. |
+| PrintingEnabled | Disables printing and the print dialog. |
+| RestoreOnStartup | Restores the previous session after a browser restart. |
 | ShowAcrobatSubscriptionButton | Hides the 'Edit with Acrobat' button when viewing PDFs. |
 | ShowMicrosoftRewards | Hides messages and notifications about Microsoft Rewards. |
 | ShowRecommendationsEnabled | Hides dialog boxes, flyouts, coach marks and banners in the browser that recommend features. |
 | TabServicesEnabled | Turns off sending URLs, page titles, and existing tab group information to the Microsoft tab organization service for suggesting tab groups and names. |
 | TextPredictionEnabled | Turns off text prediction while typing in long text fields on web pages, powered by the [Microsoft Turing service](https://www.microsoft.com/en-us/research/project/project-turing/). |
+| TranslateEnabled | Disables the built-in translation prompts and features. |
 | VisualSearchEnabled | Turns off the menu that appears when hovering the mouse over any image. Also turns off the visual search options in the context menu and sidebar search. |
 | EdgeHistoryAISearchEnabled | Turns off AI-enhanced search in the browsing history. |
 
