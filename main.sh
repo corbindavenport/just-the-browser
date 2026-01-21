@@ -15,6 +15,34 @@ _confirm_sudo() {
     fi
 }
 
+_macos_find_app_path() {
+    BNDL_ID=$1
+    CMND=$(cat <<EOF 
+    tell application "Finder"
+	    try
+            set aliasPath to application file id "${BNDL_ID}" as alias
+		    set appPath to get POSIX path of aliasPath
+		    return appPath
+	    on error errTxt number errNum
+            if errNum = -50 then
+    		    return "no_app_found"
+            else
+                error errTxt number errNum
+            end if
+	    end try
+    end tell
+EOF
+    )
+    osascript -e "${CMND}"
+}
+
+if [ "$OS" = "Darwin" ]; then
+    TMPDIR=`mktemp -d`
+    FIREFOX_APP=`_macos_find_app_path "org.mozilla.firefox"`
+    GCHROME_APP=`_macos_find_app_path "com.google.Chrome"`
+    MSCHROME_APP=`_macos_find_app_path "com.microsoft.edgemac"`
+fi
+
 # Render initial interface for all pages
 _show_header() {
     clear
@@ -100,7 +128,7 @@ _install_firefox() {
     echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
         mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
-        curl -Lfs -o "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        curl -Lfs -o "${FIREFOX_APP}Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
     else
         _confirm_sudo
         sudo mkdir -p "/etc/firefox/policies/"
@@ -113,9 +141,9 @@ _install_firefox() {
 _uninstall_firefox() {
     _show_header
     if [ "$OS" = "Darwin" ]; then
-        rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
+        rm "${FIREFOX_APP}Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
     else
-         _confirm_sudo
+        _confirm_sudo
         sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
     fi
     read -p "Removed Firefox settings. Press Enter/Return to continue."; return;
@@ -126,13 +154,13 @@ _main() {
     # Create list for menu options
     declare -a options=()
     # Google Chrome without settings applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Google Chrome.app" ]; then
+    if [ "$OS" = "Darwin" ] && [ -e "${GCHROME_APP}" ]; then
         options+=("Google Chrome: Update settings")
     elif [ "$OS" = "Linux" ] && [ -x "$(command -v google-chrome)" ]; then
         options+=("Google Chrome: Update settings")
     fi
     # Google Chrome with settings already applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Google Chrome.app" ]; then
+    if [ "$OS" = "Darwin" ] && [ -e "${GCHROME_APP}" ]; then
         options+=("Google Chrome: Remove settings")
     elif [ "$OS" = "Linux" ] && [ -e "/etc/opt/chrome/policies/managed/managed_policies.json" ]; then
         options+=("Google Chrome: Remove settings")
@@ -146,18 +174,18 @@ _main() {
         options+=("Chromium: Remove settings")
     fi
     # Microsoft Edge
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Microsoft Edge.app" ]; then
+    if [ "$OS" = "Darwin" ] && [ -e "${MSCHROME_APP}" ]; then
         options+=("Microsoft Edge: Update settings")
         options+=("Microsoft Edge: Remove settings")
     fi
     # Firefox without settings applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app" ]; then
+    if [ "$OS" = "Darwin" ] && [ -e "${FIREFOX_APP}" ]; then
         options+=("Mozilla Firefox: Update settings")
     elif [ "$OS" = "Linux" ] && [ -x "$(command -v firefox)" ]; then
         options+=("Mozilla Firefox: Update settings")
     fi
     # Firefox with settings already applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" ]; then
+    if [ "$OS" = "Darwin" ] && [ -e "${FIREFOX_APP}Contents/Resources/distribution/policies.json" ]; then
         options+=("Mozilla Firefox: Remove settings")
     elif [ "$OS" = "Linux" ] && [ -e "/etc/firefox/policies/policies.json" ]; then
         options+=("Mozilla Firefox: Remove settings")
