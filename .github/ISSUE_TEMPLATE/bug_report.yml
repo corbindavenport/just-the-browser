@@ -1,4 +1,4 @@
-name: Bug Report
+name: Bug report
 description: File a bug report for the install/uninstall script.
 title: "Bug: "
 labels: ["bug"]
@@ -31,7 +31,8 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: Which browsers are you attempting to update, if any?
+      label: Web browsers
+      description: Which browsers are you attempting to update, if any?
       multiple: true
       options:
         - Google Chrome
