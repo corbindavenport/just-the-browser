@@ -94,6 +94,10 @@ Yes. The browser guides include steps for removing the configurations, and the a
 
 Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. Chromium builds on Linux are also supported. [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) is not currently supported.
 
+### Does this also remove AI features from Google Search and other websites?
+
+No. These changes only affect the browser software. You can try using the [&udm=14 workaround](https://udm14.com/) for Google Search.
+
 ### Can I install this on my phone or tablet?
 
 Not yet. See the issues for [Android support](https://github.com/corbindavenport/just-the-browser/issues/4) and [iOS/iPadOS support](https://github.com/corbindavenport/just-the-browser/issues/5).
