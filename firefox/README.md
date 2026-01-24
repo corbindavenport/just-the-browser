@@ -20,6 +20,8 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 
 ### macOS installation
 
+**Note:** The macOS configuration file applies to all versions of Firefox. This includes Firefox stable, Firefox ESR, Firefox Beta, Firefox Developer Edition, and Firefox Nightly.
+
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/firefox.mobileconfig) and save it (`Command+S`) anywhere on your computer.
 2. In the Finder, open the configuration file you downloaded. You should see a prompt that the profile is ready for review.
 3. Open the System Settings application (Apple menu > System Settings) and navigate to General > Device Management. If you are on macOS 12 Monterey or an older version, the application is called System Preferences, and you need to open the Profiles section.

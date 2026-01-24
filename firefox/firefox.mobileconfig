@@ -4,18 +4,106 @@
 <dict>
 	<key>PayloadContent</key>
 	<array>
+        <!-- Firefox (Stable branch), Firefox ESR, and Firefox Beta -->
 		<dict>
-            <!-- Configuration definitions -->
             <key>PayloadDisplayName</key>
-			<string>Mozilla Firefox Settings</string>
+			<string>Firefox, Firefox ESR, Firefox Beta</string>
 			<key>PayloadIdentifier</key>
-			<string>com.justthebrowser.edgesettings</string>
+			<string>com.justthebrowser.firefox</string>
 			<key>PayloadOrganization</key>
 			<string>justthebrowser.com</string>
 			<key>PayloadType</key>
 			<string>org.mozilla.firefox</string>
 			<key>PayloadUUID</key>
 			<string>526bb570-5804-4c2e-8f78-70c249bf71b7</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>DisableFirefoxStudies</key>
+			<true/>
+			<key>DisableTelemetry</key>
+			<true/>
+			<key>DontCheckDefaultBrowser</key>
+			<true/>
+			<key>EnterprisePoliciesEnabled</key>
+			<true/>
+			<key>FirefoxHome</key>
+			<dict>
+				<key>SponsoredStories</key>
+				<false/>
+				<key>SponsoredTopSites</key>
+				<false/>
+				<key>Stories</key>
+				<false/>
+			</dict>
+			<key>GenerativeAI</key>
+			<dict>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+            <key>SearchEngines</key>
+            <dict>
+                <key>Remove</key>
+                <array>
+                <string>Perplexity</string>
+                </array>
+            </dict>
+		</dict>
+        <!-- Firefox Developer Edition -->
+        <dict>
+            <key>PayloadDisplayName</key>
+			<string>Firefox Developer Edition</string>
+			<key>PayloadIdentifier</key>
+			<string>com.justthebrowser.firefoxdeveloperedition</string>
+			<key>PayloadOrganization</key>
+			<string>justthebrowser.com</string>
+			<key>PayloadType</key>
+			<string>org.mozilla.firefoxdeveloperedition</string>
+			<key>PayloadUUID</key>
+			<string>062a3987-9783-4cd2-a163-9437c8c8c2c1</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>DisableFirefoxStudies</key>
+			<true/>
+			<key>DisableTelemetry</key>
+			<true/>
+			<key>DontCheckDefaultBrowser</key>
+			<true/>
+			<key>EnterprisePoliciesEnabled</key>
+			<true/>
+			<key>FirefoxHome</key>
+			<dict>
+				<key>SponsoredStories</key>
+				<false/>
+				<key>SponsoredTopSites</key>
+				<false/>
+				<key>Stories</key>
+				<false/>
+			</dict>
+			<key>GenerativeAI</key>
+			<dict>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+            <key>SearchEngines</key>
+            <dict>
+                <key>Remove</key>
+                <array>
+                <string>Perplexity</string>
+                </array>
+            </dict>
+		</dict>
+        <!-- Firefox Nightly -->
+        <dict>
+            <key>PayloadDisplayName</key>
+			<string>Firefox Nightly</string>
+			<key>PayloadIdentifier</key>
+			<string>com.justthebrowser.firefoxnightly</string>
+			<key>PayloadOrganization</key>
+			<string>justthebrowser.com</string>
+			<key>PayloadType</key>
+			<string>org.mozilla.nightly</string>
+			<key>PayloadUUID</key>
+			<string>cd119332-f0a9-4468-acfd-5595bfcb64e3</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>DisableFirefoxStudies</key>
