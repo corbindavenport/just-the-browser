@@ -4,6 +4,7 @@ OS=$(uname)
 BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
+FIREFOX_MAC_CONFIG="$BASEURL/firefox/firefox.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
 CHROME_SETTINGS="$BASEURL/chrome/managed_policies.json"
 
@@ -12,6 +13,16 @@ _confirm_sudo() {
     if [ "$EUID" != 0 ]; then
         echo "Sudo access is required for this step."
         sudo echo "Sudo granted." || { echo "Exiting."; exit 1; }
+    fi
+}
+
+# Remove Firefox JSON file on macOS if it exists, so it does not conflict with the .mobileconfig file
+# Previous versions of Just the Browser used the JSON method
+_legacy_cleanup() {
+    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" ]; then
+        echo "Previous Firefox policies.json file found, deleting..."
+        _confirm_sudo
+        sudo rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
     fi
 }
 
@@ -97,28 +108,37 @@ _uninstall_edge() {
 # Install Firefox settings
 _install_firefox() {
     _show_header
+    _legacy_cleanup
     echo "Downloading configuration, please wait..."
     if [ "$OS" = "Darwin" ]; then
-        mkdir -p "/Applications/Firefox.app/Contents/Resources/distribution/"
-        curl -Lfs -o "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        # Download and open configuration file
+        curl -Lfs -o "$TMPDIR/firefox.mobileconfig" "$FIREFOX_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        open "$TMPDIR/firefox.mobileconfig"
+        open -b "com.apple.systempreferences"
+        # Prompt user to accept file
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then open 'Mozilla Firefox settings' and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
     else
         _confirm_sudo
         sudo mkdir -p "/etc/firefox/policies/"
         sudo curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        read -p "Updated Firefox settings. Press Enter/Return to continue."
     fi
-    read -p "Updated Firefox settings. Press Enter/Return to continue."
 }
 
 # Remove Firefox settings
 _uninstall_firefox() {
     _show_header
+    _legacy_cleanup
     if [ "$OS" = "Darwin" ]; then
-        rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue"; return; }
+        open -b "com.apple.systempreferences"
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Mozilla Firefox settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
     else
          _confirm_sudo
         sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+        read -p "Removed Firefox settings. Press Enter/Return to continue.";
     fi
-    read -p "Removed Firefox settings. Press Enter/Return to continue."; return;
 }
 
 # Main menu selection
@@ -151,13 +171,13 @@ _main() {
         options+=("Microsoft Edge: Remove settings")
     fi
     # Firefox without settings applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app" ]; then
+    if [ "$OS" = "Darwin" ]; then
         options+=("Mozilla Firefox: Update settings")
     elif [ "$OS" = "Linux" ] && [ -x "$(command -v firefox)" ]; then
         options+=("Mozilla Firefox: Update settings")
     fi
     # Firefox with settings already applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" ]; then
+    if [ "$OS" = "Darwin" ]; then
         options+=("Mozilla Firefox: Remove settings")
     elif [ "$OS" = "Linux" ] && [ -e "/etc/firefox/policies/policies.json" ]; then
         options+=("Mozilla Firefox: Remove settings")

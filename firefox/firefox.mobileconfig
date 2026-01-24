@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+            <!-- Configuration definitions -->
+            <key>PayloadDisplayName</key>
+			<string>Mozilla Firefox Settings</string>
+			<key>PayloadIdentifier</key>
+			<string>com.justthebrowser.edgesettings</string>
+			<key>PayloadOrganization</key>
+			<string>justthebrowser.com</string>
+			<key>PayloadType</key>
+			<string>org.mozilla.firefox</string>
+			<key>PayloadUUID</key>
+			<string>526bb570-5804-4c2e-8f78-70c249bf71b7</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>DisableFirefoxStudies</key>
+			<true/>
+			<key>DisableTelemetry</key>
+			<true/>
+			<key>DontCheckDefaultBrowser</key>
+			<true/>
+			<key>EnterprisePoliciesEnabled</key>
+			<true/>
+			<key>FirefoxHome</key>
+			<dict>
+				<key>SponsoredStories</key>
+				<false/>
+				<key>SponsoredTopSites</key>
+				<false/>
+				<key>Stories</key>
+				<false/>
+			</dict>
+			<key>GenerativeAI</key>
+			<dict>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+            <key>SearchEngines</key>
+            <dict>
+                <key>Remove</key>
+                <array>
+                <string>Perplexity</string>
+                </array>
+            </dict>
+		</dict>
+	</array>
+    <!-- Configuration metadata -->
+	<key>PayloadDisplayName</key>
+	<string>Mozilla Firefox settings</string>
+	<key>PayloadIdentifier</key>
+	<string>com.justthebrowser.firefoxsettings</string>
+	<key>PayloadOrganization</key>
+	<string>justthebrowser.com</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>ed43a93b-1a83-4268-b80f-943801b5fa3a</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -4,7 +4,7 @@ title: Mozilla Firefox configuration
 permalink: "firefox/index.html"
 ---
 
-Firefox features can be configured using Group Policy templates on Windows, Intune on Windows, configuration profiles on macOS, or with a custom `policies.json` file. This project uses the JSON file method.
+Firefox features can be configured using Group Policy templates on Windows, Intune on Windows, configuration profiles on macOS, or with a custom `policies.json` file. This project uses the JSON file method on Windows and Firefox, and a Profile Manager file on macOS.
 
 You can check which policies are applied in Firefox by navigating to the `about:policies` page.
 
@@ -20,16 +20,12 @@ To remove the custom configuration, delete the `policies.json` file from the dis
 
 ### macOS installation
 
-**Note:** You need to open Firefox at least one time before adding a configuration file, or macOS will identify Firefox as a damaged application.
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/firefox.mobileconfig) and save it (`Command+S`) anywhere on your computer.
+2. In the Finder, open the configuration file you downloaded. You should see a prompt that the profile is ready for review.
+3. Open the System Settings application (Apple menu > System Settings) and navigate to General > Device Management. If you are on macOS 12 Monterey or an older version, the application is called System Preferences, and you need to open the Profiles section.
+4. Double-click on the 'Mozilla Firefox settings' configuration, then click the Install button and follow the prompts.
 
-1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (File > Save or `Command+S`) anywhere on your computer.
-2. Open your Applications folder and find the Firefox application. If Firefox is in the Dock, you can click it while holding the `Command` key to instantly show it in the Finder.
-3. Click on the Firefox app while holding the `Control` key (or right-click) and select 'Show Package Contents'.
-4. Go to Contents > Resources and create a new folder (File > New Folder) called "distribution" (without the quotes), if it does not already exist.
-5. Move the configuration file to the distribution folder, and make sure it is called "policies.json" (without the quotes).
-6. Restart Firefox.
-
-To remove the custom configuration, delete the `policies.json` file from the distribution folder and restart Firefox.
+To remove the custom configuration, open the Device Management settings (or Profiles pane) again, select the 'Mozilla Firefox settings' configuration, and then click the remove (-) button.
 
 ### Linux installation
 
