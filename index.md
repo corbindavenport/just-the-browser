@@ -110,9 +110,19 @@ No. Just the Browser uses [group policies](https://en.wikipedia.org/wiki/Group_P
 
 Yes, as long as the web browsers continue to support the settings used in the configuration files. Web browsers occasionally add, remove, or replace the settings options, so if the custom configuration breaks, try installing the latest available version.
 
-### Does this install ad blockers for me?
+### Does this install ad blockers?
 
 No. If you want one, try [uBlock Origin](https://github.com/gorhill/uBlock) or [uBlock Origin Lite](https://github.com/uBlockOrigin/uBOL-home).
+
+### Does this disable DNS-over-HTTPS?
+
+Google Chrome and Microsoft Edge will use the operating system's DNS client for regular DNS queries, and DNS-over-HTTPS is disabled. DNS-over-HTTPS can [improve privacy and security in some situations](https://heimdalsecurity.com/blog/dns-over-https-doh/), but when a custom configuration like Just the Browser is enabled, Chrome and Edge block access to the DNS options in the browser. Rather than switch DNS-over-HTTPS back to automatic or always-on mode, this project leaves it disabled.
+
+No DNS settings are changed for Firefox. You can access those options in `about:preferences#privacy` if needed. 
+
+### Does this disable DNS-over-TLS?
+
+Google Chrome, Mozilla Firefox, and Microsoft Edge do not support DNS-over-TLS at all.
 
 ### Why does my browser say it's managed by an organization?
 
