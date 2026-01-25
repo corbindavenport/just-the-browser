@@ -32,8 +32,6 @@
 			<integer>2</integer>
 			<key>TabCompareSettings</key>
 			<integer>2</integer>
-			<key>BuiltInDnsClientEnabled</key>
-			<false />
 			<key>DefaultBrowserSettingEnabled</key>
 			<false />
 			<key>DevToolsGenAiSettings</key>

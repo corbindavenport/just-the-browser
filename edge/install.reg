@@ -14,7 +14,6 @@ Windows Registry Editor Version 5.00
 "AIGenThemesEnabled"=dword:00000000
 "AutoImportAtFirstRun"=dword:00000004
 "BuiltInAIAPIsEnabled"=dword:00000000
-"BuiltInDnsClientEnabled"=dword:00000000
 "ComposeInlineEnabled"=dword:00000000
 "CopilotPageContext"=dword:00000000
 "DefaultBrowserSettingEnabled"=dword:00000000

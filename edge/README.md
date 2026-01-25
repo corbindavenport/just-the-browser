@@ -45,7 +45,6 @@ These are the policy settings in the Just the Browser configuration file.
 | AIGenThemesEnabled | Turns off DALL-E browser themes. |
 | AutoImportAtFirstRun | Blocks automatic data import from other web browsers. |
 | BuiltInAIAPIsEnabled | Blocks web pages from using AI APIs, including the LanguageModel API, Summarization API, Writer API, and Rewriter API. |
-| BuiltInDnsClientEnabled | Forces Edge to use the host operating system's DNS client, instead of the built-in DNS client. The built-in client is still used for DNS-over-HTTPS requests. |
 | ComposeInlineEnabled | Blocks the 'Rewrite with Copilot' feature. |
 | CopilotPageContext | Blocks Copilot from accessing web page context. |
 | DefaultBrowserSettingEnabled | Prevents Edge from asking to be the default web browser in notifications. |

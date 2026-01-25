@@ -44,8 +44,6 @@
             <integer>4</integer>
             <key>BuiltInAIAPIsEnabled</key>
             <false/>
-            <key>BuiltInDnsClientEnabled</key>
-            <false/>
             <key>ComposeInlineEnabled</key>
             <false/>
             <key>CopilotPageContext</key>

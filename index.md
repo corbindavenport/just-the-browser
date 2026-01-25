@@ -114,6 +114,12 @@ Yes, as long as the web browsers continue to support the settings used in the co
 
 No. If you want one, try [uBlock Origin](https://github.com/gorhill/uBlock) or [uBlock Origin Lite](https://github.com/uBlockOrigin/uBOL-home).
 
+### Does this disable DNS-over-HTTPS and DNS-over-TLS?
+
+No. Turning off the built-in DNS client in web browsers is sometimes worse for privacy and security, especially if the alternative is plain text queries to your internet service provider (ISP).
+
+You can change the DNS settings yourself from `chrome://settings/security` in Google Chrome, `about:preferences#privacy` in Firefox, and `edge://settings/privacy/security` in Microsoft Edge.
+
 ### Why does my browser say it's managed by an organization?
 
 The group policy settings used by Just the Browser are intended for PCs managed by companies and other large organizations. Browsers like Microsoft Edge and Firefox will display a message like "Your browser is being managed by your organization" to explain why some settings are disabled.

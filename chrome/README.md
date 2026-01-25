@@ -57,7 +57,6 @@ These are the policy settings in the Just the Browser configuration file.
 | HelpMeWriteSettings | Turns off the Help Me Write feature powered by AI. |
 | HistorySearchSettings | Turns off AI History Search. |
 | TabCompareSettings | Turns off the AI-powered Tab Compare feature. |
-| BuiltInDnsClientEnabled | Forces Chrome to use the host operating system's DNS client instead of the built-in DNS client. This has no effect when using DNS-over-HTTPS. |
 | DefaultBrowserSettingEnabled | Prevents Chrome from checking if it's the default browser and showing notifications about it. |
 | DevToolsGenAiSettings | Turns off debugging in the Dev Tools powered by generative AI models. |
 
