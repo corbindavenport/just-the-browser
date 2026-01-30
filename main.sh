@@ -13,11 +13,24 @@ if [ "$OS" = "Darwin" ]; then
     TMPDIR=`mktemp -d`
 fi
 
-# Confirm that sudo access is available
-_confirm_sudo() {
+# Get command to run as root
+SUDO=$(which sudo)
+DOAS=$(which doas)
+
+if [[ -f "${SUDO}" && -x "${SUDO}" ]]; then
+    AS_ROOT="${SUDO}"
+elif [[ -f "${DOAS}" && -x "${DOAS}" ]]; then
+    AS_ROOT="${DOAS}"
+else
+    echo "No option to run as root, exiting"
+    exit 1
+fi
+
+# Confirm that root access is available
+_confirm_root() {
     if [ "$EUID" != 0 ]; then
-        echo "Sudo access is required for this step."
-        sudo echo "Sudo granted." || { echo "Exiting."; exit 1; }
+        echo "root access is required for this step."
+        "${AS_ROOT}" echo "root granted." || { echo "Exiting."; exit 1; }
     fi
 }
 
@@ -26,8 +39,8 @@ _confirm_sudo() {
 _legacy_cleanup() {
     if [ "$OS" = "Darwin" ] && [ -e "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" ]; then
         echo "Previous Firefox policies.json file found, deleting..."
-        _confirm_sudo
-        sudo rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+        _confirm_root
+        "${AS_ROOT}" rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
     fi
 }
 
@@ -50,9 +63,9 @@ _install_chrome() {
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Google Chrome settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
         read -p "Press Enter/Return to continue."
     else
-        _confirm_sudo
-        sudo mkdir -p "/etc/opt/chrome/policies/managed"
-        sudo curl -Lfs -o "/etc/opt/chrome/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _confirm_root
+        "${AS_ROOT}" mkdir -p "/etc/opt/chrome/policies/managed"
+        "${AS_ROOT}" curl -Lfs -o "/etc/opt/chrome/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
         read -p "Installed Chrome settings. Press Enter/Return to continue."
     fi
 }
@@ -65,8 +78,8 @@ _uninstall_chrome() {
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Google Chrome settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
         read -p "Press Enter/Return to continue."
     else
-        _confirm_sudo
-        sudo rm "/etc/opt/chrome/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+        _confirm_root
+        "${AS_ROOT}" rm "/etc/opt/chrome/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
         read -p "Removed Chrome settings. Press Enter/Return to continue."
     fi
 }
@@ -75,17 +88,17 @@ _uninstall_chrome() {
 _install_chromium() {
     _show_header
     echo "Downloading configuration, please wait..."
-    _confirm_sudo
-    sudo mkdir -p "/etc/chromium/policies/managed"
-    sudo curl -Lfs -o "/etc/chromium/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    _confirm_root
+    "${AS_ROOT}" mkdir -p "/etc/chromium/policies/managed"
+    "${AS_ROOT}" curl -Lfs -o "/etc/chromium/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
     read -p "Installed Chromium settings. Press Enter/Return to continue."
 }
 
 # Remove Google Chrome settings
 _uninstall_chromium() {
     _show_header
-    _confirm_sudo
-    sudo rm "/etc/chromium/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    _confirm_root
+    "${AS_ROOT}" rm "/etc/chromium/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
     read -p "Removed Chromium settings. Press Enter/Return to continue."
 }
 
@@ -124,9 +137,9 @@ _install_firefox() {
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then open 'Mozilla Firefox settings' and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
         read -p "Press Enter/Return to continue."
     else
-        _confirm_sudo
-        sudo mkdir -p "/etc/firefox/policies/"
-        sudo curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        _confirm_root
+        "${AS_ROOT}" mkdir -p "/etc/firefox/policies/"
+        "${AS_ROOT}" curl -Lfs -o "/etc/firefox/policies/policies.json" "$FIREFOX_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
         read -p "Updated Firefox settings. Press Enter/Return to continue."
     fi
 }
@@ -140,8 +153,8 @@ _uninstall_firefox() {
         echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Mozilla Firefox settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
         read -p "Press Enter/Return to continue."
     else
-         _confirm_sudo
-        sudo rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+         _confirm_root
+        "${AS_ROOT}" rm "/etc/firefox/policies/policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
         read -p "Removed Firefox settings. Press Enter/Return to continue.";
     fi
 }
