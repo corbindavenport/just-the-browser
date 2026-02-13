@@ -90,13 +90,17 @@ The exact list of features modified for each browser can be found on the pages f
 
 Yes. The browser guides include steps for removing the configurations, and the automated script can also do it. The browser guides explain each setting, so you can add, remove, or modify the files before you install them.
 
+### How do I know the settings are applied?
+
+You can open `about:policies` in Firefox or `chrome://policy` in Chrome and Edge to see a list of active group policy settings.
+
 ### Which web browsers are supported?
 
 Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. Chromium builds on Linux are also supported. [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) is not currently supported.
 
 ### Does this also remove AI features from Google Search and other websites?
 
-No. These changes only affect the browser software. You can try using the [&udm=14 workaround](https://udm14.com/) for Google Search.
+No. These changes only affect the browser software. You can try using the [&udm=14 workaround](https://udm14.com/) for Google Search, or [Stevo's GenAI Blocklist](https://github.com/Stevoisiak/Stevos-GenAI-Blocklist/) for hiding AI features on many websites.
 
 ### Can I install this on my phone or tablet?
 
@@ -127,10 +131,6 @@ Google Chrome, Mozilla Firefox, and Microsoft Edge do not support DNS-over-TLS a
 ### Why does my browser say it's managed by an organization?
 
 The group policy settings used by Just the Browser are intended for PCs managed by companies and other large organizations. Browsers like Microsoft Edge and Firefox will display a message like "Your browser is being managed by your organization" to explain why some settings are disabled.
-
-### How do I know the settings are applied?
-
-You can open `about:policies` in Firefox or `chrome://policy` in Chrome and Edge to see a list of active group policy settings.
 
 ### Why not just use an alternative web browser?
 
