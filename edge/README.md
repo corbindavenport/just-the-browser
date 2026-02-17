@@ -19,6 +19,8 @@ To remove the custom configuration, follow the same steps with the [registry fil
 
 ### macOS installation
 
+The macOS configuration file applies to all versions of Edge. This includes Edge stable, Edge Beta, Edge Dev, and Edge Canary.
+
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/edge.mobileconfig) and save it (`Command+S`) anywhere on your computer.
 2. In the Finder, open the configuration file you downloaded. You should see a prompt that the profile is ready for review.
 3. Open the System Settings application (Apple menu > System Settings) and navigate to General > Device Management. If you are on macOS 12 Monterey or an older version, the application is called System Preferences, and you need to open the Profiles section.
