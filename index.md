@@ -16,13 +16,13 @@ The setup script can install the configuration files in a few clicks. You can al
 
 **Windows:** Open a PowerShell prompt as Administrator. You can do this by right-clicking the Windows button in the taskbar, then selecting the "Terminal (Admin)" or "PowerShell (Admin)" menu option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
 ```
-& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/0ffe4b26b9438a4ba0d29bc5d6e7ad1c4156c521/main.ps1")))
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/refs/tags/v1.2/main.ps1")))
 ```
 
 **Mac and Linux:** Search for the Terminal in your applications list and open it. Next, copy the below command, paste it into the window (`Ctrl+V` or `Cmd+V`), and press the Enter/Return key:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/0ffe4b26b9438a4ba0d29bc5d6e7ad1c4156c521/main.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/refs/tags/v1.2/main.sh)"
 ```
 
 ## Subscribe to updates
