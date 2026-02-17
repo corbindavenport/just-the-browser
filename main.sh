@@ -22,8 +22,7 @@ if [[ -f "${SUDO}" && -x "${SUDO}" ]]; then
 elif [[ -f "${DOAS}" && -x "${DOAS}" ]]; then
     AS_ROOT="${DOAS}"
 else
-    echo "No option to run as root, exiting"
-    exit 1
+    AS_ROOT=""
 fi
 
 # Confirm that root access is available
