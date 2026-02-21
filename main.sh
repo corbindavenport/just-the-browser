@@ -16,21 +16,20 @@ fi
 # Get command to run as root
 SUDO=$(which sudo)
 DOAS=$(which doas)
-
 if [[ -f "${SUDO}" && -x "${SUDO}" ]]; then
     AS_ROOT="${SUDO}"
 elif [[ -f "${DOAS}" && -x "${DOAS}" ]]; then
     AS_ROOT="${DOAS}"
 else
-    echo "No option to run as root, exiting"
+    echo "No option to run as root, your system does not have sudo or doas installed."
     exit 1
 fi
 
 # Confirm that root access is available
 _confirm_root() {
     if [ "$EUID" != 0 ]; then
-        echo "root access is required for this step."
-        "${AS_ROOT}" echo "root granted." || { echo "Exiting."; exit 1; }
+        echo "Root access is required for this step."
+        "${AS_ROOT}" echo "Root access granted." || { echo "Exiting."; exit 1; }
     fi
 }
 
@@ -164,13 +163,13 @@ _main() {
     # Create list for menu options
     declare -a options=()
     # Google Chrome without settings applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Google Chrome.app" ]; then
+    if [ "$OS" = "Darwin" ]; then
         options+=("Google Chrome: Update settings")
     elif [ "$OS" = "Linux" ] && [ -x "$(command -v google-chrome)" ]; then
         options+=("Google Chrome: Update settings")
     fi
     # Google Chrome with settings already applied
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Google Chrome.app" ]; then
+    if [ "$OS" = "Darwin" ]; then
         options+=("Google Chrome: Remove settings")
     elif [ "$OS" = "Linux" ] && [ -e "/etc/opt/chrome/policies/managed/managed_policies.json" ]; then
         options+=("Google Chrome: Remove settings")
@@ -184,7 +183,7 @@ _main() {
         options+=("Chromium: Remove settings")
     fi
     # Microsoft Edge
-    if [ "$OS" = "Darwin" ] && [ -e "/Applications/Microsoft Edge.app" ]; then
+    if [ "$OS" = "Darwin" ]; then
         options+=("Microsoft Edge: Update settings")
         options+=("Microsoft Edge: Remove settings")
     fi
