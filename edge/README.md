@@ -20,6 +20,8 @@ You can check which policies are applied in Microsoft Edge by navigating to the 
 
 To remove the custom configuration, follow the same steps with the [registry file for uninstallation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/uninstall.reg). This will remove the modified registry keys from your system.
 
+If your default search engine keeps getting reset in Edge, make sure you imported `install-base.reg` before `install-search.reg`. Importing only the old one-file install can cause intermittent overrides on some Windows/Edge versions.
+
 ### macOS installation
 
 The macOS configuration file applies to all versions of Edge. This includes Edge stable, Edge Beta, Edge Dev, and Edge Canary.
@@ -70,3 +72,4 @@ These are the policy settings in the Just the Browser configuration file.
 
 - [Microsoft Edge policy documentation and full list](https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies)
 - [Issue #49 reproduction matrix](reproduction-matrix.md)
+- [Issue #49 verification checklist](verification-checklist.md)
