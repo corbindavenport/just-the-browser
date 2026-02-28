@@ -2,7 +2,8 @@
 
 $OS = Get-CimInstance Win32_OperatingSystem
 $BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
-$MicrosoftEdgeInstallRegistry = "$BaseURL/edge/install.reg"
+$MicrosoftEdgeInstallRegistryBase = "$BaseURL/edge/install-base.reg"
+$MicrosoftEdgeInstallRegistrySearch = "$BaseURL/edge/install-search.reg"
 $MicrosoftEdgeUninstallRegistry = "$BaseURL/edge/uninstall.reg"
 $GoogleChromeInstallRegistry = "$BaseURL/chrome/install.reg"
 $GoogleChromeUninstallRegistry = "$BaseURL/chrome/uninstall.reg"
@@ -74,18 +75,24 @@ function Uninstall-Chrome {
 # Install Microsoft Edge settings
 function Install-Edge {
     Show-Header
-    Write-Host "Downloading registry file, please wait..."
-    # Download file
+    Write-Host "Downloading registry files, please wait..."
+    # Download files in order: base settings first, search settings second
     try {
-        Invoke-WebRequest $MicrosoftEdgeInstallRegistry -OutFile "$env:LocalAppData\edge.reg"
+        Invoke-WebRequest $MicrosoftEdgeInstallRegistryBase -OutFile "$env:LocalAppData\edge-base.reg"
+        Invoke-WebRequest $MicrosoftEdgeInstallRegistrySearch -OutFile "$env:LocalAppData\edge-search.reg"
     }
     catch {
         Read-Host -Prompt "Download failed! Press Enter/Return to continue" | Out-Null
         Return
     }
-    # Install file
-    $EdgeInstall = Start-Process "reg.exe" -ArgumentList "import `"$env:LocalAppData\edge.reg`"" -WindowStyle Hidden -Wait -PassThru
-    if ($EdgeInstall.ExitCode -eq 0) {
+    # Install files in order to reduce search engine override risk
+    $EdgeBaseInstall = Start-Process "reg.exe" -ArgumentList "import `"$env:LocalAppData\edge-base.reg`"" -WindowStyle Hidden -Wait -PassThru
+    if ($EdgeBaseInstall.ExitCode -ne 0) {
+        Read-Host -Prompt "Install failed! Press Enter/Return to continue" | Out-Null
+        Return
+    }
+    $EdgeSearchInstall = Start-Process "reg.exe" -ArgumentList "import `"$env:LocalAppData\edge-search.reg`"" -WindowStyle Hidden -Wait -PassThru
+    if ($EdgeSearchInstall.ExitCode -eq 0) {
         Read-Host -Prompt "Updated Microsoft Edge settings. Press Enter/Return to continue" | Out-Null
     } else {
         Read-Host -Prompt "Install failed! Press Enter/Return to continue" | Out-Null

@@ -10,10 +10,13 @@ You can check which policies are applied in Microsoft Edge by navigating to the 
 
 ### Windows installation
 
-1. Open the [registry file for installation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/install.reg) and save it (`Ctrl+S`) anywhere on your computer.
+1. Open the [base registry file for installation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/install-base.reg) and save it (`Ctrl+S`) anywhere on your computer.
 2. In the File Explorer, right-click the file and select Open with > Registry Editor.
 3. Follow the prompts to install the registry keys to the Windows Registry.
-5. Restart Edge.
+4. Open the [search registry file for installation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/install-search.reg) and save it (`Ctrl+S`) anywhere on your computer.
+5. In the File Explorer, right-click the file and select Open with > Registry Editor.
+6. Follow the prompts to install the registry keys to the Windows Registry.
+7. Restart Edge.
 
 To remove the custom configuration, follow the same steps with the [registry file for uninstallation](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/edge/uninstall.reg). This will remove the modified registry keys from your system.
 
