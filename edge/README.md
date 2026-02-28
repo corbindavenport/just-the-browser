@@ -66,3 +66,4 @@ These are the policy settings in the Just the Browser configuration file.
 ### Documentation
 
 - [Microsoft Edge policy documentation and full list](https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies)
+- [Issue #49 reproduction matrix](reproduction-matrix.md)
