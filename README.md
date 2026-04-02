@@ -26,6 +26,8 @@ The setup script can install the configuration files in a few clicks. You can al
 
 See the [Google Chrome](chrome/README.md), [Microsoft Edge](edge/README.md), and [Mozilla Firefox](firefox/README.md) documentation pages for manual installation instructions, and explanations for each setting. The browser directories also contain the configuration files, which are either JSON files, [Windows Registry .reg](https://en.wikipedia.org/wiki/Windows_Registry#.REG_files) files for Windows, or [Profile Manager .mobileconfig](https://support.apple.com/guide/profile-manager/distribute-profiles-manually-pmdbd71ebc9/mac) files for macOS.
 
+For Microsoft Edge on Windows, apply `edge/install-base.reg` before `edge/install-search.reg`. This two-phase order is a workaround for an intermittent default search engine override (issue #49).
+
 ## Website
 
 This repository also includes the static site generator for [justthebrowser.com](https://justthebrowser.com/), built with [Eleventy](https://www.11ty.dev/) and [Simple.css](https://simplecss.org/). The icons are from [Bootstrap Icons](https://icons.getbootstrap.com/).
