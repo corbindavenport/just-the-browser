@@ -11,3 +11,9 @@ Windows Registry Editor Version 5.00
 "BuiltInDnsClientEnabled"=dword:00000000
 "DefaultBrowserSettingEnabled"=dword:00000000
 "DevToolsGenAiSettings"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserChrome]
+"DisplayName"="Just the Browser configuration - Google Chrome"
+"URLInfoAbout"="https://justthebrowser.com/"
+"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\Google\\Chrome,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserChrome -Recurse -ErrorAction Ignore\""
+"ModifyPath"="explorer.exe \"https://justthebrowser.com/\""

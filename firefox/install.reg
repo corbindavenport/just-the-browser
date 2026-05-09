@@ -15,3 +15,9 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\SearchEngines\Remove]
 "1"="Perplexity"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserFirefox]
+"DisplayName"="Just the Browser configuration - Mozilla Firefox"
+"URLInfoAbout"="https://justthebrowser.com/"
+"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\Mozilla\\Firefox,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserFirefox -Recurse -ErrorAction Ignore\""
+"ModifyPath"="explorer.exe \"https://justthebrowser.com/\""

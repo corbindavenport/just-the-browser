@@ -29,3 +29,9 @@ Windows Registry Editor Version 5.00
 "TextPredictionEnabled"=dword:00000000
 "VisualSearchEnabled"=dword:00000000
 "EdgeHistoryAISearchEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserEdge]
+"DisplayName"="Just the Browser configuration - Microsoft Edge"
+"URLInfoAbout"="https://justthebrowser.com/"
+"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserEdge -Recurse -ErrorAction Ignore\""
+"ModifyPath"="explorer.exe \"https://justthebrowser.com/\""
