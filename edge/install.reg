@@ -33,5 +33,5 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserEdge]
 "DisplayName"="Just the Browser configuration - Microsoft Edge"
 "URLInfoAbout"="https://justthebrowser.com/"
-"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserEdge -Recurse -ErrorAction Ignore\""
+"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserEdge -Recurse -ErrorAction SilentlyContinue\""
 "ModifyPath"="explorer.exe \"https://justthebrowser.com/\""
