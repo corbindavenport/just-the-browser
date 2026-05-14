@@ -34,7 +34,7 @@ These instructions work for both Chromium and Google Chrome. You can check what 
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Create the managed policies directory with one of the below commands.
     - For Google Chrome: `sudo mkdir -p /etc/opt/chrome/policies/managed`
-    - For Chromium: `sudo mkdir -p /etc/chromium/policies/managed`
+    - For Chromium: `sudo mkdir -p /etc/chromium-browser/policies/managed`
 4. Copy the file to the new folder with one of the below commands.
     - For Google Chrome: `sudo cp ./managed_policies.json /etc/opt/chrome/policies/managed`
     - For Chromium: `sudo cp ./managed_policies.json /etc/chromium/policies/managed`
@@ -42,7 +42,7 @@ These instructions work for both Chromium and Google Chrome. You can check what 
 
 To remove the custom configuration, delete the `managed_policies.json` file from the managed policies directory and restart the browser. You can do that with one of the below commands.
  - For Google Chrome: `sudo rm /etc/opt/chrome/policies/managed/managed_policies.json`
- - For Chromium: `sudo rm /etc/chromium/policies/managed/managed_policies.json`
+ - For Chromium: `sudo rm /etc/chromium-browser/policies/managed/managed_policies.json`
 
 ### Browser settings
 
