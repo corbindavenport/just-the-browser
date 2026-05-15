@@ -58,7 +58,8 @@ These are the policy settings in the Just the Browser configuration file.
 | `DisableTelemetry` | Prevents the upload of telemetry data. As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well. |
 | `DontCheckDefaultBrowser` | Prevents popup warnings about Firefox not being the default browser. |
 | `FirefoxHome` | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
-| `GenerativeAI` | Turns off all generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
+| `GenerativeAI` | Turns off generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
+| `AIControls` | Turns off AI controls, including Translations, PDFAltText, SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. |
 | `SearchEngines` | Removes Perplexity AI as a default search engine. |
 
 ### Documentation

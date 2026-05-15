@@ -4,9 +4,9 @@
 <dict>
 	<key>PayloadContent</key>
 	<array>
-        <!-- Firefox (Stable branch), Firefox ESR, and Firefox Beta -->
+		<!-- Firefox (Stable branch), Firefox ESR, and Firefox Beta -->
 		<dict>
-            <key>PayloadDisplayName</key>
+			<key>PayloadDisplayName</key>
 			<string>Firefox, Firefox ESR, Firefox Beta</string>
 			<key>PayloadIdentifier</key>
 			<string>com.justthebrowser.firefox</string>
@@ -39,18 +39,78 @@
 			<dict>
 				<key>Enabled</key>
 				<false/>
+				<key>Chatbot</key>
+				<false/>
+				<key>LinkPreviews</key>
+				<false/>
+				<key>TabGroups</key>
+				<false/>
+				<key>Locked</key>
+				<true/>
 			</dict>
-            <key>SearchEngines</key>
-            <dict>
-                <key>Remove</key>
-                <array>
-                <string>Perplexity</string>
-                </array>
-            </dict>
+			<key>AIControls</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>Translations</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>PDFAltText</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartTabGroups</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>LinkPreviewKeyPoints</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SidebarChatbot</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartWindow</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>SearchEngines</key>
+			<dict>
+				<key>Remove</key>
+				<array>
+				<string>Perplexity</string>
+				</array>
+			</dict>
 		</dict>
-        <!-- Firefox Developer Edition -->
-        <dict>
-            <key>PayloadDisplayName</key>
+		<!-- Firefox Developer Edition -->
+		<dict>
+			<key>PayloadDisplayName</key>
 			<string>Firefox Developer Edition</string>
 			<key>PayloadIdentifier</key>
 			<string>com.justthebrowser.firefoxdeveloperedition</string>
@@ -83,18 +143,78 @@
 			<dict>
 				<key>Enabled</key>
 				<false/>
+				<key>Chatbot</key>
+				<false/>
+				<key>LinkPreviews</key>
+				<false/>
+				<key>TabGroups</key>
+				<false/>
+				<key>Locked</key>
+				<true/>
 			</dict>
-            <key>SearchEngines</key>
-            <dict>
-                <key>Remove</key>
-                <array>
-                <string>Perplexity</string>
-                </array>
-            </dict>
+			<key>AIControls</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>Translations</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>PDFAltText</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartTabGroups</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>LinkPreviewKeyPoints</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SidebarChatbot</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartWindow</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>SearchEngines</key>
+			<dict>
+				<key>Remove</key>
+				<array>
+				<string>Perplexity</string>
+				</array>
+			</dict>
 		</dict>
-        <!-- Firefox Nightly -->
-        <dict>
-            <key>PayloadDisplayName</key>
+		<!-- Firefox Nightly -->
+		<dict>
+			<key>PayloadDisplayName</key>
 			<string>Firefox Nightly</string>
 			<key>PayloadIdentifier</key>
 			<string>com.justthebrowser.firefoxnightly</string>
@@ -127,17 +247,77 @@
 			<dict>
 				<key>Enabled</key>
 				<false/>
+				<key>Chatbot</key>
+				<false/>
+				<key>LinkPreviews</key>
+				<false/>
+				<key>TabGroups</key>
+				<false/>
+				<key>Locked</key>
+				<true/>
 			</dict>
-            <key>SearchEngines</key>
-            <dict>
-                <key>Remove</key>
-                <array>
-                <string>Perplexity</string>
-                </array>
-            </dict>
+			<key>AIControls</key>
+			<dict>
+				<key>Default</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>Translations</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>PDFAltText</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartTabGroups</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>LinkPreviewKeyPoints</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SidebarChatbot</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+				<key>SmartWindow</key>
+				<dict>
+					<key>Value</key>
+					<string>blocked</string>
+					<key>Locked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>SearchEngines</key>
+			<dict>
+				<key>Remove</key>
+				<array>
+				<string>Perplexity</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
-    <!-- Configuration metadata -->
+	<!-- Configuration metadata -->
 	<key>PayloadDisplayName</key>
 	<string>Mozilla Firefox settings</string>
 	<key>PayloadIdentifier</key>
