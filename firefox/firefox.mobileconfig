@@ -60,16 +60,16 @@
 				<key>Translations</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>PDFAltText</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>SmartTabGroups</key>
 				<dict>
@@ -164,16 +164,16 @@
 				<key>Translations</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>PDFAltText</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>SmartTabGroups</key>
 				<dict>
@@ -268,16 +268,16 @@
 				<key>Translations</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>PDFAltText</key>
 				<dict>
 					<key>Value</key>
-					<string>blocked</string>
+					<string>available</string>
 					<key>Locked</key>
-					<true/>
+					<false/>
 				</dict>
 				<key>SmartTabGroups</key>
 				<dict>

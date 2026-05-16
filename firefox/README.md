@@ -59,7 +59,7 @@ These are the policy settings in the Just the Browser configuration file.
 | `DontCheckDefaultBrowser` | Prevents popup warnings about Firefox not being the default browser. |
 | `FirefoxHome` | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
 | `GenerativeAI` | Turns off generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
-| `AIControls` | Turns off AI controls, including Translations, PDFAltText, SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. |
+| `AIControls` | Turns off most AI controls, including SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. PDFAltText and Translations are left enabled, but they can be turned off from `about:preferences#ai` if desired. |
 | `SearchEngines` | Removes Perplexity AI as a default search engine. |
 
 ### Documentation

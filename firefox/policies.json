@@ -21,12 +21,12 @@
         "Locked": true
       },
       "Translations": {
-        "Value": "blocked",
-        "Locked": true
+        "Value": "available",
+        "Locked": false
       },
       "PDFAltText": {
-        "Value": "blocked",
-        "Locked": true
+        "Value": "available",
+        "Locked": false
       },
       "SmartTabGroups": {
         "Value": "blocked",

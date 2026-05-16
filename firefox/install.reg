@@ -22,12 +22,12 @@ Windows Registry Editor Version 5.00
 "Locked"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\AIControls\Translations]
-"Value"="blocked"
-"Locked"=dword:00000001
+"Value"="available"
+"Locked"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\AIControls\PDFAltText]
-"Value"="blocked"
-"Locked"=dword:00000001
+"Value"="available"
+"Locked"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Mozilla\Firefox\AIControls\SmartTabGroups]
 "Value"="blocked"
