@@ -9,7 +9,41 @@
       "Stories": false
     },
     "GenerativeAI": {
-      "Enabled": false
+      "Enabled": false,
+      "Chatbot": false,
+      "LinkPreviews": false,
+      "TabGroups": false,
+      "Locked": true
+    },
+    "AIControls": {
+      "Default": {
+        "Value": "blocked",
+        "Locked": true
+      },
+      "Translations": {
+        "Value": "available",
+        "Locked": false
+      },
+      "PDFAltText": {
+        "Value": "available",
+        "Locked": false
+      },
+      "SmartTabGroups": {
+        "Value": "blocked",
+        "Locked": true
+      },
+      "LinkPreviewKeyPoints": {
+        "Value": "blocked",
+        "Locked": true
+      },
+      "SidebarChatbot": {
+        "Value": "blocked",
+        "Locked": true
+      },
+      "SmartWindow": {
+        "Value": "blocked",
+        "Locked": true
+      }
     },
     "SearchEngines": {
       "Remove": [
