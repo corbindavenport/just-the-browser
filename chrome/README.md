@@ -26,7 +26,25 @@ To remove the custom configuration, follow the same steps with the [registry fil
 
 To remove the custom configuration, open the Device Management settings (or Profiles pane) again, select the 'Google Chrome settings' configuration, and then click the remove (-) button.
 
-### Linux installation
+### Linux installation for Chromium Flatpak
+
+Follow these instructions if you are using the [Chromium Web Browser Flatpak package](https://flathub.org/en/apps/org.chromium.Chromium).
+
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "managed_policies.json" (without the quotes).
+2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
+3. Find your Flatpak architecture and save it as a variable: `FLATPAK_ARCH=$(flatpak --default-arch)`
+4. Create the managed policies directory: `mkdir -p "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/"`
+5. Copy the configuration file to the directory: `cp ./managed_policies.json "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/"`
+6. Restart the browser.
+
+To remove the custom configuration, delete the `managed_policies.json` file from the managed policies directory and restart the browser. You can do that with these commands:
+
+```
+FLATPAK_ARCH=$(flatpak --default-arch)
+rm "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/managed_policies.json"
+```
+
+### Linux installation for system package
 
 These instructions work for both Chromium and Google Chrome. You can check what you're running by opening `chrome://version` and checking if it says "Chromium" or "Google Chrome" at the top-right corner of the page.
 

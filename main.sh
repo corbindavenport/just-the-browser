@@ -113,6 +113,23 @@ _uninstall_chromium() {
     read -p "Removed Chromium settings. Press Enter/Return to continue."
 }
 
+# Install Chromium settings for Flatpak
+_install_chromium_flatpak() {
+    _show_header
+    FLATPAK_ARCH=$(flatpak --default-arch)
+    mkdir -p "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/"
+    curl -Lfs -o "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    read -p "Installed Chromium settings. Press Enter/Return to continue."
+}
+
+# Remove Chromium settings for Flatpak
+_uninstall_chromium_flatpak() {
+    _show_header
+    FLATPAK_ARCH=$(flatpak --default-arch)
+    rm "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    read -p "Removed Chromium settings. Press Enter/Return to continue."
+}
+
 # Install Microsoft Edge settings
 _install_edge() {
     _show_header
@@ -196,6 +213,11 @@ _main() {
     elif [ "$OS" = "Linux" ] && [ -e "/etc/chromium/policies/managed/managed_policies.json" ]; then
         options+=("Chromium: Remove settings")
     fi
+    # Chromium Flatpak
+    if [ "$OS" = "Linux" ] && [ -x "$(command -v flatpak)" ] && flatpak list | grep -q chromium; then
+        options+=("Chromium Flatpak: Update settings")
+        options+=("Chromium Flatpak: Remove settings")
+    fi
     # Microsoft Edge
     if [ "$OS" = "Darwin" ]; then
         options+=("Microsoft Edge: Update settings")
@@ -227,6 +249,10 @@ _main() {
             _install_chromium
         elif [ "$choice" = "Chromium: Remove settings" ]; then
             _uninstall_chromium
+        elif [ "$choice" = "Chromium Flatpak: Update settings" ]; then
+            _install_chromium_flatpak
+        elif [ "$choice" = "Chromium Flatpak: Remove settings" ]; then
+            _uninstall_chromium_flatpak
         elif [ "$choice" = "Microsoft Edge: Update settings" ]; then
             _install_edge
         elif [ "$choice" = "Microsoft Edge: Remove settings" ]; then
