@@ -1,4 +1,8 @@
 #Requires -RunAsAdministrator
+#Requires -Version 4.0
+
+# GitHub requires TLS v1.2, but it's not enabled by default in PowerShell v5.0 and older releases
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
 $OS = Get-CimInstance Win32_OperatingSystem
 $BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
@@ -8,7 +12,6 @@ $GoogleChromeInstallRegistry = "$BaseURL/chrome/install.reg"
 $GoogleChromeUninstallRegistry = "$BaseURL/chrome/uninstall.reg"
 $FirefoxInstallRegistry = "$BaseURL/firefox/install.reg"
 $FirefoxUninstallRegistry = "$BaseURL/firefox/uninstall.reg"
-$FirefoxSettings = "$BaseURL/firefox/policies.json"
 
 # Render initial interface for all pages
 function Show-Header {
@@ -177,7 +180,7 @@ function Show-Menu {
         })
     # Google Chrome with settings applied
     if (Test-Path "HKLM:\SOFTWARE\Policies\Google\Chrome") {
-        $GoogleChromeCheck = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "AIModeSettings" -ErrorAction SilentlyContinue
+        $GoogleChromeCheck = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -ErrorAction SilentlyContinue).AIModeSettings
         if ($null -ne $GoogleChromeCheck) {
             $options.Add(@{
                 Label  = "Google Chrome: Remove settings"
@@ -192,7 +195,7 @@ function Show-Menu {
         })
     # Microsoft Edge with settings applied
     if (Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge") {
-        $MicrosoftEdgeCheck = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "HideFirstRunExperience" -ErrorAction SilentlyContinue
+        $MicrosoftEdgeCheck = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -ErrorAction SilentlyContinue).HideFirstRunExperience
         if ($null -ne $MicrosoftEdgeCheck) {
             $options.Add(@{
                 Label  = "Microsoft Edge: Remove settings"
@@ -203,11 +206,11 @@ function Show-Menu {
     # Mozilla Firefox
     if (Test-Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox") {
         # Find the current version installed, like: 147.0.1 (AArch64 en-US)
-        $FirefoxVersion = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox" -Name "CurrentVersion"
+        $FirefoxVersion = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox" -ErrorAction SilentlyContinue).CurrentVersion
         # Find the registry values for the specified version
         if (Test-Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox\$FirefoxVersion\Main") {
             # Finds the installation path, like: C:\Program Files\Mozilla Firefox
-            $FirefoxPath = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox\$FirefoxVersion\Main" -Name "Install Directory"
+            $FirefoxPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox\$FirefoxVersion\Main" -ErrorAction SilentlyContinue)."Install Directory"
             # Firefox without settings alreay applied
             $options.Add(@{
                 Label  = "Mozilla Firefox: Update settings"
