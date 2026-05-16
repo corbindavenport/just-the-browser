@@ -88,8 +88,13 @@ _install_chromium() {
     _show_header
     echo "Downloading configuration, please wait..."
     _confirm_root
+    # Install to /etc/chromium-browser/policies/managed for Ubuntu and related distributions
+    "${AS_ROOT}" mkdir -p "/etc/chromium-browser/policies/managed"
+    "${AS_ROOT}" curl -Lfs -o "/etc/chromium-browser/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    # Install to /etc/chromium/policies/managed for other distributions
     "${AS_ROOT}" mkdir -p "/etc/chromium/policies/managed"
     "${AS_ROOT}" curl -Lfs -o "/etc/chromium/policies/managed/managed_policies.json" "$CHROME_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+    # Completed
     read -p "Installed Chromium settings. Press Enter/Return to continue."
 }
 
@@ -97,7 +102,14 @@ _install_chromium() {
 _uninstall_chromium() {
     _show_header
     _confirm_root
-    "${AS_ROOT}" rm "/etc/chromium/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    # Uninstall from /etc/chromium-browser/policies/managed for Ubuntu and related distributions
+    if [ -e "/etc/chromium-browser/policies/managed/managed_policies.json" ]; then
+        "${AS_ROOT}" rm "/etc/chromium-browser/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    fi
+    # Uninstall from /etc/chromium/policies/managed for other distributions
+    if [ -e "/etc/chromium/policies/managed/managed_policies.json" ]; then
+        "${AS_ROOT}" rm "/etc/chromium/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+    fi
     read -p "Removed Chromium settings. Press Enter/Return to continue."
 }
 
@@ -179,7 +191,9 @@ _main() {
         options+=("Chromium: Update settings")
     fi
     # Chromium with settings already applied
-    if [ "$OS" = "Linux" ] && [ -e "/etc/chromium/policies/managed/managed_policies.json" ]; then
+    if [ "$OS" = "Linux" ] && [ -e "/etc/chromium-browser/policies/managed/managed_policies.json" ]; then
+        options+=("Chromium: Remove settings")
+    elif [ "$OS" = "Linux" ] && [ -e "/etc/chromium/policies/managed/managed_policies.json" ]; then
         options+=("Chromium: Remove settings")
     fi
     # Microsoft Edge
