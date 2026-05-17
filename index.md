@@ -18,6 +18,10 @@ The setup script can install the configuration files in a few clicks. You can al
 ```
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/main.ps1")))
 ```
+If you are on older versions of Windows, you may need to run this command first:
+```
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
+```
 
 **Mac and Linux:** Search for the Terminal in your applications list and open it. Next, copy the below command, paste it into the window (`Ctrl+V` or `Cmd+V`), and press the Enter/Return key:
 
@@ -97,6 +101,12 @@ You can open `about:policies` in Firefox or `chrome://policy` in Chrome and Edge
 ### Which web browsers are supported?
 
 Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. Chromium builds on Linux are also supported. [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) is not currently supported.
+
+### Which operating systems are supported?
+
+The setup script for Windows works in Windows 8.1, Windows 10, and Windows 11. The setup script for macOS and Linux works on any system with Bash and cURL installed, which includes all modern macOS releases and most Linux distributions.
+
+If the setup script doesn't work on your system, try the manual installation methods.
 
 ### Does this also remove AI features from Google Search and other websites?
 

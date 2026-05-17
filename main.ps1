@@ -2,7 +2,7 @@
 #Requires -Version 4.0
 
 # GitHub requires TLS v1.2, but it's not enabled by default in PowerShell v5.0 and older releases
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
 
 $OS = Get-CimInstance Win32_OperatingSystem
 $BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
