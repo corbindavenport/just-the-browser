@@ -32,6 +32,7 @@ Windows Registry Editor Version 5.00
 "CopilotAddressBarSuggestionsEnabled"=dword:00000000
 "AllowBrowsingWithCopilot"=dword:00000000
 "PersonalizationReportingEnabled"=dword:00000000
+"SearchbarAllowed"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserEdge]
 "DisplayName"="Just the Browser configuration - Microsoft Edge"

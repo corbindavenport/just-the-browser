@@ -65,6 +65,7 @@ These are the policy settings in the Just the Browser configuration file.
 | CopilotAddressBarSuggestionsEnabled | Turns off Copilot chat suggestions in the address bar. |
 | AllowBrowsingWithCopilot| Blocks the Browsing with Copilot feature. |
 | PersonalizationReportingEnabled | Prevents Microsoft from collecting a user's Microsoft Edge browsing history, favorites and collections, usage, and other browsing data to be used for personalizing advertising, search, news, Microsoft Edge, and other Microsoft services. |
+| SearchbarAllowed | Blocks the floating Search Bar from the "More tools" menu and jump list. If this is enabled, Edge continues running in the background after all windows are closed. |
 
 ### Documentation
 

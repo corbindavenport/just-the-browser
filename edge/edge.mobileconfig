@@ -80,6 +80,8 @@
             <false/>
             <key>PersonalizationReportingEnabled</key>
             <false/>
+            <key>SearchbarAllowed</key>
+            <false/>
 		</dict>
         <!-- Microsoft Edge Beta -->
 		<dict>
@@ -156,6 +158,8 @@
             <key>AllowBrowsingWithCopilot</key>
             <false/>
             <key>PersonalizationReportingEnabled</key>
+            <false/>
+            <key>SearchbarAllowed</key>
             <false/>
 		</dict>
         <!-- Microsoft Edge Dev -->
@@ -234,6 +238,8 @@
             <false/>
             <key>PersonalizationReportingEnabled</key>
             <false/>
+            <key>SearchbarAllowed</key>
+            <false/>
 		</dict>
         <!-- Microsoft Edge Canary -->
 		<dict>
@@ -310,6 +316,8 @@
             <key>AllowBrowsingWithCopilot</key>
             <false/>
             <key>PersonalizationReportingEnabled</key>
+            <false/>
+            <key>SearchbarAllowed</key>
             <false/>
 		</dict>
 	</array>
