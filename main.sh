@@ -257,7 +257,7 @@ _main() {
         options+=("Mozilla Firefox: Remove settings")
     fi
     # Firefox Flatpak
-    if [ "$OS" = "Linux" ] && [ -x "$(command -v flatpak)" ] && flatpak list | grep -q "org.chromium.Chromium"; then
+    if [ "$OS" = "Linux" ] && [ -x "$(command -v flatpak)" ] && flatpak list | grep -q "org.mozilla.firefox"; then
         options+=("Firefox Flatpak: Update settings")
         options+=("Firefox Flatpak: Remove settings")
     fi
