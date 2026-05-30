@@ -79,6 +79,7 @@ These are the policy settings in the Just the Browser configuration file.
 | `GenerativeAI` | Turns off generative AI features, including AI chatbots in the sidebar, link previews, and tab group suggestions. |
 | `AIControls` | Turns off most AI controls, including SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. PDFAltText and Translations are left enabled, but they can be turned off from `about:preferences#ai` if desired. |
 | `SearchEngines` | Removes Perplexity AI as a default search engine. |
+| `IPProtectionAvailable` | The built-in Firefox VPN is [normally blocked](https://support.mozilla.org/en-US/kb/built-in-vpn?as=u&utm_source=inproduct#:~:text=Enterprise%20note) when enterprise policies are active, this allows it to function again. |
 
 ### Documentation
 

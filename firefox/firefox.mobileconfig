@@ -107,6 +107,8 @@
 				<string>Perplexity</string>
 				</array>
 			</dict>
+			<key>IPProtectionAvailable</key>
+			<true/>
 		</dict>
 		<!-- Firefox Developer Edition -->
 		<dict>
@@ -211,6 +213,8 @@
 				<string>Perplexity</string>
 				</array>
 			</dict>
+			<key>IPProtectionAvailable</key>
+			<true/>
 		</dict>
 		<!-- Firefox Nightly -->
 		<dict>
@@ -315,6 +319,8 @@
 				<string>Perplexity</string>
 				</array>
 			</dict>
+			<key>IPProtectionAvailable</key>
+			<true/>
 		</dict>
 	</array>
 	<!-- Configuration metadata -->
