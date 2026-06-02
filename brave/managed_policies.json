@@ -1,0 +1,17 @@
+{
+  "AIModeSettings": 1,
+  "CreateThemesSettings": 2,
+  "GenAILocalFoundationalModelSettings": 1,
+  "HelpMeWriteSettings": 2,
+  "HistorySearchSettings": 2,
+  "TabCompareSettings": 2,
+  "BuiltInDnsClientEnabled": false,
+  "DefaultBrowserSettingEnabled": false,
+  "DevToolsGenAiSettings": 2,
+  "BraveAIChatEnabled" : 0,
+  "BraveNewsDisabled" : 1,
+  "BravePlaylistEnabled" : 0,
+  "BraveSpeedreaderEnabled" : 0,
+  "BraveTalkDisabled" : 1,
+  "BraveWaybackMachineEnabled" : 0
+}

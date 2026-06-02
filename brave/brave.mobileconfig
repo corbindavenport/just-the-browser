@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<!-- https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy#:~:text=1%20%3D%20Disabled-,braveaichatenabled,-0%2C%201%20(default -->
+			<!-- Configuration definitions -->
+			<key>PayloadDisplayName</key>
+			<string>Brave Browser settings</string>
+			<key>PayloadIdentifier</key>
+			<string>com.justthebrowser.bravesettings</string>
+			<key>PayloadOrganization</key>
+			<string>justthebrowser.com</string>
+			<key>PayloadType</key>
+			<string>com.brave.Brave</string>
+			<key>PayloadUUID</key>
+			<string>57FA2AE2-E222-4E59-9892-88BA444C90EF</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>AIModeSettings</key>
+			<integer>1</integer>
+			<key>CreateThemesSettings</key>
+			<integer>2</integer>
+			<key>GenAILocalFoundationalModelSettings</key>
+			<integer>1</integer>
+			<key>HelpMeWriteSettings</key>
+			<integer>2</integer>
+			<key>HistorySearchSettings</key>
+			<integer>2</integer>
+			<key>TabCompareSettings</key>
+			<integer>2</integer>
+			<key>BuiltInDnsClientEnabled</key>
+			<false />
+			<key>DefaultBrowserSettingEnabled</key>
+			<false />
+			<key>DevToolsGenAiSettings</key>
+			<integer>2</integer>
+			<key>BraveAIChatEnabled</key>
+			<integer>0</integer>
+			<key>BraveNewsDisabled</key>
+			<integer>1</integer>
+			<key>BraveP3AEnabled</key>
+			<integer>0</integer>
+			<key>BraveRewardsDisabled</key>
+			<integer>1</integer>
+			<key>BraveStatsPingEnabled</key>
+			<integer>0</integer>
+			<key>BraveWalletDisabled</key>
+			<integer>1</integer>
+			<key>BraveWebDiscoveryEnabled</key>
+			<integer>0</integer>
+			<key>BuiltInDnsClientEnabled</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Brave Browser settings</string>
+	<key>PayloadIdentifier</key>
+	<string>com.justthebrowser.bravesettings</string>
+	<key>PayloadOrganization</key>
+	<string>justthebrowser.com</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>DA9835FF-7CA5-4139-B525-E450A9B8D1A1</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
