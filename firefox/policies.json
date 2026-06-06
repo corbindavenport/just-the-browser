@@ -8,13 +8,6 @@
       "SponsoredTopSites": false,
       "Stories": false
     },
-    "GenerativeAI": {
-      "Enabled": false,
-      "Chatbot": false,
-      "LinkPreviews": false,
-      "TabGroups": false,
-      "Locked": true
-    },
     "AIControls": {
       "Default": {
         "Value": "blocked",

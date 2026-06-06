@@ -35,19 +35,6 @@
 				<key>Stories</key>
 				<false/>
 			</dict>
-			<key>GenerativeAI</key>
-			<dict>
-				<key>Enabled</key>
-				<false/>
-				<key>Chatbot</key>
-				<false/>
-				<key>LinkPreviews</key>
-				<false/>
-				<key>TabGroups</key>
-				<false/>
-				<key>Locked</key>
-				<true/>
-			</dict>
 			<key>AIControls</key>
 			<dict>
 				<key>Default</key>
