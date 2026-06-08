@@ -110,7 +110,7 @@ If the setup script doesn't work on your system, try the manual installation met
 
 ### Does this also remove AI features from Google Search and other websites?
 
-No. These changes only affect the browser software. You can try using the [&udm=14 workaround](https://udm14.com/) for Google Search, or [Stevo's GenAI Blocklist](https://github.com/Stevoisiak/Stevos-GenAI-Blocklist/) for hiding AI features on many websites.
+No. These changes only affect the browser software. You can try using the [&udm=14 workaround](https://udm14.com/) for Google Search, or [Stevo's AI Blocklist](https://github.com/Stevoisiak/Stevos-AI-Blocklist/) for hiding AI features on many websites.
 
 ### Can I install this on my phone or tablet?
 
