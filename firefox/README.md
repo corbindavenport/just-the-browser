@@ -44,9 +44,18 @@ Follow these instructions if you are using the [Firefox Flatpak package](https:/
 
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
-3. Find your Flatpak architecture and save it as a variable: `FLATPAK_ARCH=$(flatpak --default-arch)`
-4. Create the managed policies directory: `mkdir -p "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies"`
-5. Copy the configuration file to the directory: `cp ./policies.json "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies/"`
+3. Find your Flatpak architecture and save it as a variable:
+```
+FLATPAK_ARCH=$(flatpak --default-arch)
+```
+4. Create the managed policies directory:
+```
+mkdir -p "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies"
+```
+5. Copy the configuration file to the directory:
+```
+cp ./policies.json "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies/"
+```
 6. Restart the browser.
 
 To remove the custom configuration, delete the `policies.json` file from the managed policies directory and restart the browser. You can do that with these commands:
@@ -60,11 +69,20 @@ rm "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATP
 
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
-3. Create the Firefox policies directory with this command: `sudo mkdir -p /etc/firefox/policies/`
-4. Copy the file to the new folder: `sudo cp ./policies.json /etc/firefox/policies/`
+3. Create the Firefox policies directory with this command:
+```
+sudo mkdir -p /etc/firefox/policies/
+```
+4. Copy the file to the new folder:
+```
+sudo cp ./policies.json /etc/firefox/policies/
+```
 5. Restart Firefox.
 
-To remove the custom configuration, delete the `policies.json` file from the distribution folder and restart Firefox. You can do that in the Terminal: `sudo rm /etc/firefox/policies/policies.json`
+To remove the custom configuration, delete the `policies.json` file from the distribution folder and restart Firefox. You can do that with this command:
+```
+sudo rm /etc/firefox/policies/policies.json
+```
 
 ### Browser settings
 
@@ -74,14 +92,14 @@ Firefox 149+ uses the `AIControls` setting to configure generative AI features, 
 
 | Feature | Information |
 | ------- | ----------- |
-| `DisableFirefoxStudies` | Prevents Firefox from enrolling in [Studies](https://support.mozilla.org/en-US/kb/shield), which may involve additional analytics reporting. |
-| `DisableTelemetry` | Prevents the upload of telemetry data. As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well. |
-| `DontCheckDefaultBrowser` | Prevents popup warnings about Firefox not being the default browser. |
-| `FirefoxHome` | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
-| `AIControls` | Turns off most AI controls, including SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. PDFAltText and Translations are left enabled, but they can be turned off from `about:preferences#ai` if desired. |
-| `GenerativeAI` | The previous version of the AIControls setting for Firefox versions 144-148. |
-| `SearchEngines` | Removes Perplexity AI as a default search engine. |
-| `IPProtectionAvailable` | The built-in Firefox VPN is [normally blocked](https://support.mozilla.org/en-US/kb/built-in-vpn?as=u&utm_source=inproduct#:~:text=Enterprise%20note) when enterprise policies are active. This setting allows it to function again. |
+| DisableFirefoxStudies | Prevents Firefox from enrolling in [Studies](https://support.mozilla.org/en-US/kb/shield), which may involve additional analytics reporting. |
+| DisableTelemetry | Prevents the upload of telemetry data. As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well. |
+| DontCheckDefaultBrowser | Prevents popup warnings about Firefox not being the default browser. |
+| FirefoxHome | Turns off stores, sponsored stories, and sponsored top sites on the Firefox Home page. |
+| AIControls | Turns off most AI controls, including SmartTabGroups, LinkPreviewKeyPoints, SidebarChatbot, and the SmartWindow. PDFAltText and Translations are left enabled, but they can be turned off from `about:preferences#ai` if desired. |
+| GenerativeAI | The previous version of the AIControls setting for Firefox versions 144-148. |
+| SearchEngines | Removes Perplexity AI as a default search engine. |
+| IPProtectionAvailable | The built-in Firefox VPN is [normally blocked](https://support.mozilla.org/en-US/kb/built-in-vpn?as=u&utm_source=inproduct#:~:text=Enterprise%20note) when enterprise policies are active. This setting allows it to function again. |
 
 ### Documentation
 
