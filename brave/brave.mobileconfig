@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PayloadDisplayName</key>
+	<string>Brave</string>
+	<key>PayloadIdentifier</key>
+	<string>com.justthebrowser.brave</string>
+	<key>PayloadOrganization</key>
+	<string>justthebrowser.com</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>011A297A-61C9-488B-8E81-0261031F8C83</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
 	<key>PayloadContent</key>
 	<array>
 		<dict>
@@ -14,11 +28,11 @@
 			<key>PayloadOrganization</key>
 			<string>justthebrowser.com</string>
 			<key>PayloadType</key>
-			<string>com.brave.Brave</string>
+			<string>com.brave.Browser</string>
 			<key>PayloadUUID</key>
 			<string>57FA2AE2-E222-4E59-9892-88BA444C90EF</string>
 			<key>PayloadVersion</key>
-			<integer>1</integer>
+			<true/>
 			<key>AIModeSettings</key>
 			<integer>1</integer>
 			<key>CreateThemesSettings</key>
@@ -38,36 +52,20 @@
 			<key>DevToolsGenAiSettings</key>
 			<integer>2</integer>
 			<key>BraveAIChatEnabled</key>
-			<integer>0</integer>
+			<false/>
 			<key>BraveNewsDisabled</key>
-			<integer>1</integer>
+			<true/>
 			<key>BraveP3AEnabled</key>
-			<integer>0</integer>
+			<false/>
 			<key>BraveRewardsDisabled</key>
-			<integer>1</integer>
+			<true/>
 			<key>BraveStatsPingEnabled</key>
-			<integer>0</integer>
+			<false/>
 			<key>BraveWalletDisabled</key>
-			<integer>1</integer>
+			<true/>
 			<key>BraveWebDiscoveryEnabled</key>
-			<integer>0</integer>
-			<key>BuiltInDnsClientEnabled</key>
-			<integer>0</integer>
+			<false/>
 		</dict>
 	</array>
-	<key>PayloadDisplayName</key>
-	<string>Brave Browser settings</string>
-	<key>PayloadIdentifier</key>
-	<string>com.justthebrowser.bravesettings</string>
-	<key>PayloadOrganization</key>
-	<string>justthebrowser.com</string>
-	<key>PayloadScope</key>
-	<string>User</string>
-	<key>PayloadType</key>
-	<string>Configuration</string>
-	<key>PayloadUUID</key>
-	<string>DA9835FF-7CA5-4139-B525-E450A9B8D1A1</string>
-	<key>PayloadVersion</key>
-	<integer>1</integer>
 </dict>
 </plist>
