@@ -1,12 +1,15 @@
 #!/bin/bash
 
 OS=$(uname)
-BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
+# BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
+BASEURL="https://kalak.fun/jtb/"
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_MAC_CONFIG="$BASEURL/firefox/firefox.mobileconfig"
 FIREFOX_SETTINGS="$BASEURL/firefox/policies.json"
 CHROME_SETTINGS="$BASEURL/chrome/managed_policies.json"
+BRAVE_SETTINGS="$BASEURL/brave/managed_policies.json"
+BRAVE_MAC_CONFIG="$BASEURL/brave/brave.mobileconfig"
 
 # Generate a temporary directory on macOS instead of broken default $TMPDIR
 if [ "$OS" = "Darwin" ]; then
@@ -208,6 +211,40 @@ _uninstall_firefox_flatpak() {
     read -p "Removed Firefox settings. Press Enter/Return to continue."
 }
 
+# Install Brave settings
+_install_brave() {
+    _show_header
+    echo "Downloading configuration, please wait..."
+    if [ "$OS" = "Darwin" ]; then
+        # Download and open configuration file
+        curl -Lfs -o "$TMPDIR/brave.mobileconfig" "$BRAVE_MAC_CONFIG" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        open "$TMPDIR/brave.mobileconfig"
+        open -b "com.apple.systempreferences"
+        # Prompt user to accept file
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then open Brave settings and click the Install button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
+    else
+        _confirm_root
+        "${AS_ROOT}" mkdir -p "/etc/brave/policies/managed"
+        "${AS_ROOT}" curl -Lfs -o "/etc/brave/policies/managed/managed_policies.json" "$BRAVE_SETTINGS" || { read -p "Download failed! Press Enter/Return to continue."; return; }
+        read -p "Installed Brave settings. Press Enter/Return to continue."
+    fi
+}
+
+# Remove Brave settings
+_uninstall_brave() {
+    _show_header
+    if [ "$OS" = "Darwin" ]; then
+        open -b "com.apple.systempreferences"
+        echo -e "\nIn the System Settings application, navigate to General > Device Management, then select 'Brave settings' and click the remove (-) button.\n\nIn older macOS versions with System Preferences, this is in the Profiles section.\n"
+        read -p "Press Enter/Return to continue."
+    else
+        _confirm_root
+        "${AS_ROOT}" rm "/etc/brave/policies/managed/managed_policies.json" || { read -p "Remove failed! Press Enter/Return to continue."; return; }
+        read -p "Removed Brave settings. Press Enter/Return to continue."
+    fi
+}
+
 # Main menu selection
 _main() {
     # Create list for menu options
@@ -261,6 +298,18 @@ _main() {
         options+=("Firefox Flatpak: Update settings")
         options+=("Firefox Flatpak: Remove settings")
     fi
+    # Brave without settings applied
+    if [ "$OS" = "Darwin" ]; then
+        options+=("Brave: Update settings")
+    elif [ "$OS" = "Linux" ] && [ -x "$(command -v brave-browser)" ]; then
+        options+=("Brave: Update settings")
+    fi
+    # Brave with settings already applied
+    if [ "$OS" = "Darwin" ]; then
+        options+=("Brave: Remove settings")
+    elif [ "$OS" = "Linux" ] && [ -e "/etc/brave/policies/managed/managed_policies.json" ]; then
+        options+=("Brave: Remove settings")
+    fi
     # Add exit option
     options+=("Exit")
     # Show main menu
@@ -291,6 +340,10 @@ _main() {
             _install_firefox_flatpak
         elif [ "$choice" = "Firefox Flatpak: Remove settings" ]; then
             _uninstall_firefox_flatpak
+        elif [ "$choice" = "Brave: Update settings" ]; then
+            _install_brave
+        elif [ "$choice" = "Brave: Remove settings" ]; then
+            _uninstall_brave
         elif [ "$choice" = "Exit" ]; then
             exit 0
         else

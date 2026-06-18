@@ -5,13 +5,16 @@
 [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
 
 $OS = Get-CimInstance Win32_OperatingSystem
-$BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
+# $BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
+$BaseURL = "https://kalak.fun/jtb/"
 $MicrosoftEdgeInstallRegistry = "$BaseURL/edge/install.reg"
 $MicrosoftEdgeUninstallRegistry = "$BaseURL/edge/uninstall.reg"
 $GoogleChromeInstallRegistry = "$BaseURL/chrome/install.reg"
 $GoogleChromeUninstallRegistry = "$BaseURL/chrome/uninstall.reg"
 $FirefoxInstallRegistry = "$BaseURL/firefox/install.reg"
 $FirefoxUninstallRegistry = "$BaseURL/firefox/uninstall.reg"
+$BraveInstallRegistry = "$BaseURL/brave/install.reg"
+$BraveUninstallRegistry = "$BaseURL/brave/uninstall.reg"
 
 # Render initial interface for all pages
 function Show-Header {
@@ -120,6 +123,50 @@ function Uninstall-Edge {
     }
 }
 
+# Install Brave settings
+function Install-Brave {
+    Show-Header
+    Write-Host "Downloading registry file, please wait..."
+    # Download file
+    try {
+        Invoke-WebRequest $BraveInstallRegistry -OutFile "$env:LocalAppData\brave.reg"
+    }
+    catch {
+        Read-Host -Prompt "Download failed! Press Enter/Return to continue" | Out-Null
+        Return
+    }
+    # Install file
+    $BraveInstall = Start-Process "reg.exe" -ArgumentList "import `"$env:LocalAppData\brave.reg`"" -WindowStyle Hidden -Wait -PassThru
+    if ($BraveInstall.ExitCode -eq 0) {
+        Read-Host -Prompt "Updated Brave settings. Press Enter/Return to continue" | Out-Null
+    }
+    else {
+        Read-Host -Prompt "Install failed! Press Enter/Return to continue" | Out-Null
+    }
+}
+
+# Remove Brave settings
+function Uninstall-Brave {
+    Show-Header
+    Write-Host "Downloading registry file, please wait..."
+    # Download file
+    try {
+        Invoke-WebRequest $BraveUninstallRegistry -OutFile "$env:LocalAppData\brave.reg"
+    }
+    catch {
+        Read-Host -Prompt "Download failed! Press Enter/Return to continue" | Out-Null
+        Return
+    }
+    # Install file
+    $BraveUninstall = Start-Process "reg.exe" -ArgumentList "import `"$env:LocalAppData\brave.reg`"" -WindowStyle Hidden -Wait -PassThru
+    if ($BraveUninstall.ExitCode -eq 0) {
+        Read-Host -Prompt "Removed Brave settings. Press Enter/Return to continue" | Out-Null
+    }
+    else {
+        Read-Host -Prompt "Remove failed! Press Enter/Return to continue" | Out-Null
+    }
+}
+
 # Install Firefox settings
 function Install-Firefox {
     Param(
@@ -179,6 +226,7 @@ function Uninstall-Firefox {
     }
 }
 
+
 # Main menu selection
 function Show-Menu {
     # Create list for menu options
@@ -210,6 +258,21 @@ function Show-Menu {
             $options.Add(@{
                     Label  = "Microsoft Edge: Remove settings"
                     Action = { Uninstall-Edge }
+                })
+        }
+    }
+    # Brave without settings applied
+    $options.Add(@{
+            Label  = "Brave: Update settings"
+            Action = { Install-Brave }
+        })
+    # Brave with settings applied
+    if (Test-Path "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave") {
+        $BraveCheck = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave" -ErrorAction SilentlyContinue).WaitForBrowserInit
+        if ($null -ne $BraveCheck) {
+            $options.Add(@{
+                    Label  = "Brave: Remove settings"
+                    Action = { Uninstall-Brave }
                 })
         }
     }

@@ -15,7 +15,6 @@ Windows Registry Editor Version 5.00
 "BravePlaylistEnabled"=dword:00000000
 "BraveSpeedreaderEnabled"=dword:00000000
 "BraveTalkDisabled"=dword:00000001
-"BraveWaybackMachineEnabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserChrome]
 "DisplayName"="Just the Browser configuration - Brave Browser
