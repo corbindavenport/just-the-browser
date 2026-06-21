@@ -1,8 +1,7 @@
 #!/bin/bash
 
 OS=$(uname)
-# BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
-BASEURL="https://kalak.fun/jtb/"
+BASEURL="https://raw.githubusercontent.com/corbindavenport/just-the-browser/main"
 MICROSOFT_EDGE_MAC_CONFIG="$BASEURL/edge/edge.mobileconfig"
 GOOGLE_CHROME_MAC_CONFIG="$BASEURL/chrome/chrome.mobileconfig"
 FIREFOX_MAC_CONFIG="$BASEURL/firefox/firefox.mobileconfig"

