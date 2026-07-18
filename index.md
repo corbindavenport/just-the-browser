@@ -84,6 +84,7 @@ Just the Browser aims to remove the following functionality from popular web bro
 - **Shopping features:** Price tracking, coupon codes, [loan integrations](https://www.windowscentral.com/edge-integrating-buy-now-pay-later-predatory-and-disappointing), etc.
 - **Sponsored or third-party content:** Suggested articles on the New Tab Page, sponsored site suggestions, etc.
 - **Default browser reminders:** Pop-ups or other prompts that ask you to change the default web browser.
+- **Feature recommendations:** Pop-ups or other prompts asking you to try out features.
 - **First-run experiences and data import prompts:** Browser welcome screens and their related prompts to import data automatically from other web browsers.
 - **Telemetry:** Data collection by web browsers. Crash reporting is left enabled if the browser (such as Firefox) supports it as a separate option.
 - **Startup boost:** Features that allow web browsers to start with the operating system without explicit permission.

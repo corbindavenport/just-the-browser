@@ -67,6 +67,7 @@ These are the policy settings in the Just the Browser configuration file.
 | AllowBrowsingWithCopilot| Blocks the Browsing with Copilot feature. |
 | PersonalizationReportingEnabled | Prevents Microsoft from collecting a user's Microsoft Edge browsing history, favorites and collections, usage, and other browsing data to be used for personalizing advertising, search, news, Microsoft Edge, and other Microsoft services. |
 | SearchbarAllowed | Blocks the floating [Edge Search Bar](https://www.microsoft.com/en-us/edge/features/edge-search-bar), accessible from the "More tools" menu and the `Win+Shift+F` keyboard shortcut. If it's opened, Edge continues running in the background after all windows are closed. |
+| PinningWizardAllowed | Blocks Microsoft Edge from suggesting sites to pin to the Windows taskbar. Manually pinning sites is still allowed. |
 
 ### Documentation
 

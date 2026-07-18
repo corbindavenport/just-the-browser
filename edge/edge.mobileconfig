@@ -84,6 +84,8 @@
             <false/>
             <key>SearchbarAllowed</key>
             <false/>
+            <key>PinningWizardAllowed</key>
+            <false/>
 		</dict>
         <!-- Microsoft Edge Beta -->
 		<dict>
@@ -164,6 +166,8 @@
             <key>PersonalizationReportingEnabled</key>
             <false/>
             <key>SearchbarAllowed</key>
+            <false/>
+            <key>PinningWizardAllowed</key>
             <false/>
 		</dict>
         <!-- Microsoft Edge Dev -->
@@ -246,6 +250,8 @@
             <false/>
             <key>SearchbarAllowed</key>
             <false/>
+            <key>PinningWizardAllowed</key>
+            <false/>
 		</dict>
         <!-- Microsoft Edge Canary -->
 		<dict>
@@ -326,6 +332,8 @@
             <key>PersonalizationReportingEnabled</key>
             <false/>
             <key>SearchbarAllowed</key>
+            <false/>
+            <key>PinningWizardAllowed</key>
             <false/>
 		</dict>
 	</array>
