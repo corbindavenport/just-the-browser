@@ -37,11 +37,13 @@ These are the policy settings in the Just the Browser configuration file.
 | DefaultBrowserSettingEnabled | Prevents Brave from checking if it's the default browser and showing notifications about it. |
 | DevToolsGenAiSettings | Turns off debugging in the Dev Tools powered by generative AI models. |
 | BraveWalletDisabled | Disables Wallet, web3, and decentralized DNS settings and functionality. |
-| BraveVPNDisabled |  |
 | BraveAIChatEnabled | Turns off the AI chat features. |
 | BraveNewsDisabled | Turns off suggested news articles from Brave. |
-| BraveP3AEnabled | Turns off [Privacy-Preserving Product Analytics](https://brave.com/blog/privacy-preserving-product-analytics-p3a/). |
-| BraveStatsPingEnabled | Prevents usage data from being sent to Brave. |
+| BraveP3AEnabled | Controls whether the browser sends anonymous usage data to Brave. |
+| BraveRewardsDisabled | Turns off the Brave Rewards program where users earn BAT tokens. |
+| BraveStatsPingEnabled | A lightweight signal used to count active daily/monthly users. Disabling this stops the browser from announcing its presence to Brave's update servers. |
+| BraveTalkDisabled | Disables prompts for [Brave Talk](https://support.brave.app/hc/en-us/articles/4409911973261-How-do-I-use-Brave-Talk) service. It can still be accessed from `talk.brave.com`. |
+| BraveWebDiscoveryEnabled | Prevents sending "some anonymous data about searches and web page visits made within the Brave Browser" [for Brave Search](https://support.brave.app/hc/en-us/articles/4409406835469-What-is-the-Web-Discovery-Project). |
 
 ### Documentation
 

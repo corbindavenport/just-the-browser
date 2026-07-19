@@ -18,10 +18,6 @@
 			<string>11100B41-35B2-4185-B8FD-89F6A9E073A3</string>
 			<key>PayloadVersion</key>
 			<true/>
-			<key>AIModeSettings</key>
-			<integer>1</integer>
-			<key>CreateThemesSettings</key>
-			<integer>2</integer>
 			<key>GenAILocalFoundationalModelSettings</key>
 			<integer>1</integer>
 			<key>BuiltInDnsClientEnabled</key>
@@ -41,6 +37,8 @@
 			<key>BraveStatsPingEnabled</key>
 			<false/>
 			<key>BraveWalletDisabled</key>
+			<true/>
+			<key>BraveTalkDisabled</key>
 			<true/>
 			<key>BraveWebDiscoveryEnabled</key>
 			<false/>
