@@ -31,4 +31,11 @@ module.exports = function (eleventyConfig) {
         });
         return dom.serialize();
     });
+    // Force exit on site builds, because there's sometimes a hanging process
+    if (process.env.ELEVENTY_ENV === "production" || !process.argv.includes("--serve")) {
+        eleventyConfig.on("eleventy.after", function () {
+            console.log("Forcing exit...");
+            process.exit(0);
+        });
+    }
 };
