@@ -2,24 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>PayloadDisplayName</key>
-	<string>Brave</string>
-	<key>PayloadIdentifier</key>
-	<string>com.justthebrowser.brave</string>
-	<key>PayloadOrganization</key>
-	<string>justthebrowser.com</string>
-	<key>PayloadRemovalDisallowed</key>
-	<false/>
-	<key>PayloadType</key>
-	<string>Configuration</string>
-	<key>PayloadUUID</key>
-	<string>011A297A-61C9-488B-8E81-0261031F8C83</string>
-	<key>PayloadVersion</key>
-	<integer>1</integer>
 	<key>PayloadContent</key>
 	<array>
 		<dict>
-			<!-- https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy#:~:text=1%20%3D%20Disabled-,braveaichatenabled,-0%2C%201%20(default -->
 			<!-- Configuration definitions -->
 			<key>PayloadDisplayName</key>
 			<string>Brave Browser settings</string>
@@ -30,7 +15,7 @@
 			<key>PayloadType</key>
 			<string>com.brave.Browser</string>
 			<key>PayloadUUID</key>
-			<string>57FA2AE2-E222-4E59-9892-88BA444C90EF</string>
+			<string>11100B41-35B2-4185-B8FD-89F6A9E073A3</string>
 			<key>PayloadVersion</key>
 			<true/>
 			<key>AIModeSettings</key>
@@ -67,5 +52,19 @@
 			<false/>
 		</dict>
 	</array>
+	<key>PayloadDisplayName</key>
+	<string>Brave settings</string>
+	<key>PayloadIdentifier</key>
+	<string>com.justthebrowser.brave</string>
+	<key>PayloadOrganization</key>
+	<string>justthebrowser.com</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>C6A03082-9813-4FB3-889A-23CE80877075</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
 </dict>
 </plist>
