@@ -273,7 +273,7 @@ function Show-Menu {
         })
     # Brave with settings applied
     if (Test-Path "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave") {
-        $BraveCheck = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave" -ErrorAction SilentlyContinue).WaitForBrowserInit
+        $BraveCheck = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\BraveSoftware\Brave" -ErrorAction SilentlyContinue).BraveAIChatEnabled
         if ($null -ne $BraveCheck) {
             $options.Add(@{
                     Label  = "Brave: Remove settings"
