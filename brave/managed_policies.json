@@ -1,0 +1,14 @@
+{
+  "GenAILocalFoundationalModelSettings": 1,
+  "BuiltInDnsClientEnabled": false,
+  "DefaultBrowserSettingEnabled": false,
+  "DevToolsGenAiSettings": 2,
+  "BraveWalletDisabled": true,
+  "BraveP3AEnabled": false,
+  "BraveRewardsDisabled": true,
+  "BraveStatsPingEnabled": false,
+  "BraveAIChatEnabled" : false,
+  "BraveNewsDisabled" : true,
+  "BraveTalkDisabled" : true,
+  "BraveWebDiscoveryEnabled": false
+}

@@ -1,0 +1,21 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Policies\BraveSoftware\Brave]
+"GenAILocalFoundationalModelSettings"=dword:00000001
+"BuiltInDnsClientEnabled"=dword:00000000
+"DefaultBrowserSettingEnabled"=dword:00000000
+"DevToolsGenAiSettings"=dword:00000002
+"BraveWalletDisabled"=dword:00000001
+"BraveP3AEnabled"=dword:00000000
+"BraveRewardsDisabled"=dword:00000001
+"BraveStatsPingEnabled"=dword:00000000
+"BraveAIChatEnabled"=dword:00000000
+"BraveNewsDisabled"=dword:00000001
+"BraveTalkDisabled"=dword:00000001
+"BraveWebDiscoveryEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserBrave]
+"DisplayName"="Just the Browser configuration - Brave Browser"
+"URLInfoAbout"="https://justthebrowser.com/"
+"UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserBrave -Recurse -ErrorAction SilentlyContinue\""
+"ModifyPath"="explorer.exe \"https://justthebrowser.com/\""
