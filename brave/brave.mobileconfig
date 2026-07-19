@@ -24,12 +24,6 @@
 			<integer>2</integer>
 			<key>GenAILocalFoundationalModelSettings</key>
 			<integer>1</integer>
-			<key>HelpMeWriteSettings</key>
-			<integer>2</integer>
-			<key>HistorySearchSettings</key>
-			<integer>2</integer>
-			<key>TabCompareSettings</key>
-			<integer>2</integer>
 			<key>BuiltInDnsClientEnabled</key>
 			<false />
 			<key>DefaultBrowserSettingEnabled</key>

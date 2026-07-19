@@ -32,22 +32,19 @@ These are the policy settings in the Just the Browser configuration file.
 
 | Feature | Information |
 | ------- | ----------- |
-| AIModeSettings | Turns off Google's AI Mode integrations in the address bar and the New Tab page search box. |
-| CreateThemesSettings | Turns off the ability to create custom themes and wallpapers with generative AI. |
 | GenAILocalFoundationalModelSettings | Prevents the local AI model from being downloaded. |
-| HelpMeWriteSettings | Turns off the Help Me Write feature powered by AI. |
-| HistorySearchSettings | Turns off AI History Search. |
-| TabCompareSettings | Turns off the AI-powered Tab Compare feature. |
-| BuiltInDnsClientEnabled | Forces Chrome to use the host operating system's DNS client instead of the built-in DNS client. This has no effect when using DNS-over-HTTPS. |
-| DefaultBrowserSettingEnabled | Prevents Chrome from checking if it's the default browser and showing notifications about it. |
+| BuiltInDnsClientEnabled | Forces Brave to use the host operating system's DNS client instead of the built-in DNS client. This has no effect when using DNS-over-HTTPS. |
+| DefaultBrowserSettingEnabled | Prevents Brave from checking if it's the default browser and showing notifications about it. |
 | DevToolsGenAiSettings | Turns off debugging in the Dev Tools powered by generative AI models. |
 | BraveWalletDisabled | Disables Wallet, web3, and decentralized DNS settings and functionality. |
 | BraveVPNDisabled |  |
-| BraveAIChatEnabled |  |
-| BraveNewsDisabled |  |
-| BraveP3AEnabled |  |
-| BraveStatsPingEnabled |  |
+| BraveAIChatEnabled | Turns off the AI chat features. |
+| BraveNewsDisabled | Turns off suggested news articles from Brave. |
+| BraveP3AEnabled | Turns off [Privacy-Preserving Product Analytics](https://brave.com/blog/privacy-preserving-product-analytics-p3a/). |
+| BraveStatsPingEnabled | Prevents usage data from being sent to Brave. |
 
 ### Documentation
 
 - [Brave Group policy list](https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy)
+- [Chrome Enterprise policy list](https://chromeenterprise.google/policies/)
+- [Chromium Documentation for Administrators](https://www.chromium.org/administrators/linux-quick-start/)
