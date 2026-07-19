@@ -12,7 +12,7 @@ This project includes configuration files for popular web browsers, documentatio
 
 ## Get started
 
-The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Google Chrome](/chrome), [Microsoft Edge](/edge), and [Firefox](/firefox). If you don't like running scripts with administrator/root access, or the script does not work, use the guides instead.
+The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Google Chrome](/chrome), [Microsoft Edge](/edge), [Firefox](/firefox), and [Brave](/brave). If you don't like running scripts with administrator/root access, or the script does not work, use the guides instead.
 
 **Windows:** Search for "Windows PowerShell" in the Start Menu, right-click it, and select the "Run as administrator" option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
 ```
@@ -72,6 +72,10 @@ Not sure which link to use? Try the [official download page](https://www.firefox
 
 Not sure which link to use? Try the [official download page](https://www.microsoft.com/en-us/edge/download).
 
+### Brave Browser
+
+[Latest version from GitHub](https://github.com/brave/brave-browser/releases/latest)
+
 ## Questions and answers
 
 Got a question? Check here first, and if you still need help, [create an issue on GitHub](https://github.com/corbindavenport/just-the-browser/issues) or [join the Discord](https://discord.com/invite/tqJDRsmQVn).
@@ -88,7 +92,7 @@ Just the Browser aims to remove the following functionality from popular web bro
 - **Telemetry:** Data collection by web browsers. Crash reporting is left enabled if the browser (such as Firefox) supports it as a separate option.
 - **Startup boost:** Features that allow web browsers to start with the operating system without explicit permission.
 
-The exact list of features modified for each browser can be found on the pages for [Google Chrome](/chrome), [Microsoft Edge](/edge), and [Firefox](/firefox).
+The exact list of features modified for each browser can be found on the pages for [Google Chrome](/chrome), [Microsoft Edge](/edge), [Firefox](/firefox), and [Brave](/brave).
 
 ### Can I change or remove the settings?
 
@@ -96,11 +100,11 @@ Yes. The browser guides include steps for removing the configurations, and the a
 
 ### How do I know the settings are applied?
 
-You can open `about:policies` in Firefox or `chrome://policy` in Chrome and Edge to see a list of active group policy settings.
+You can open `about:policies` in Firefox or `chrome://policy` in Chrome, Edge, and Brave to see a list of active group policy settings.
 
 ### Which web browsers are supported?
 
-Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, and Mozilla Firefox. Chromium builds on Linux are also supported. [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) is not currently supported.
+Just the Browser has configuration files and setup scripts for Google Chrome, Microsoft Edge, Mozilla Firefox, and Brave. Chromium builds on Linux are also supported. [Edge on Linux](https://github.com/corbindavenport/just-the-browser/issues/1) is not currently supported.
 
 ### Which operating systems are supported?
 
@@ -130,7 +134,7 @@ No. If you want one, try [uBlock Origin](https://github.com/gorhill/uBlock) or [
 
 ### Does this disable DNS-over-HTTPS?
 
-Google Chrome and Microsoft Edge will use the operating system's DNS client for regular DNS queries, and DNS-over-HTTPS is disabled. DNS-over-HTTPS can [improve privacy and security in some situations](https://heimdalsecurity.com/blog/dns-over-https-doh/), but when a custom configuration like Just the Browser is enabled, Chrome and Edge block access to the DNS options in the browser. Rather than switch DNS-over-HTTPS back to automatic or always-on mode, this project leaves it disabled.
+Google Chrome, Microsoft Edge, and Brave will use the operating system's DNS client for regular DNS queries, and DNS-over-HTTPS is disabled. DNS-over-HTTPS can [improve privacy and security in some situations](https://heimdalsecurity.com/blog/dns-over-https-doh/), but when a custom configuration like Just the Browser is enabled, Chrome/Edge/Brave will block access to the DNS options in the browser. Rather than switch DNS-over-HTTPS back to automatic or always-on mode, this project leaves it disabled.
 
 No DNS settings are changed for Firefox. You can access those options in `about:preferences#privacy` if needed. 
 
