@@ -8,23 +8,27 @@ This project includes configuration files for popular web browsers, documentatio
 
 ## Install script
 
-The setup script can install the configuration files in a few clicks. You can also follow the guides in the `chrome`, `edge`, and `firefox` directories.
+The setup script can install the configuration files in a few clicks. You can also follow the manual guides for [Google Chrome](/chrome), [Microsoft Edge](/edge), [Firefox](/firefox), and [Brave](/brave). If you don't like running scripts with administrator/root access, or the script does not work, use the guides instead.
 
-**Windows:** Open a PowerShell prompt as Administrator. You can do this by right-clicking the Windows button in the taskbar, then selecting the "Terminal (Admin)" or "PowerShell (Admin)" menu option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
-
-```powershell
+**Windows:** Search for "Windows PowerShell" in the Start Menu, right-click it, and select the "Run as administrator" option. Next, copy the below command, paste it into the window (`Ctrl+V`), and press the Enter/Return key:
+```
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/main.ps1")))
+```
+If you are on older versions of Windows, you may need to run this command first:
+```
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
 ```
 
 **Mac and Linux:** Search for the Terminal in your applications list and open it. Next, copy the below command, paste it into the window (`Ctrl+V` or `Cmd+V`), and press the Enter/Return key:
 
-```bash
+```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/main.sh)"
 ```
 
+
 ## Documentation and config files
 
-See the [Google Chrome](chrome/README.md), [Microsoft Edge](edge/README.md), and [Mozilla Firefox](firefox/README.md) documentation pages for manual installation instructions, and explanations for each setting. The browser directories also contain the configuration files, which are either JSON files, [Windows Registry .reg](https://en.wikipedia.org/wiki/Windows_Registry#.REG_files) files for Windows, or [Profile Manager .mobileconfig](https://support.apple.com/guide/profile-manager/distribute-profiles-manually-pmdbd71ebc9/mac) files for macOS.
+See the [Google Chrome](chrome/README.md), [Microsoft Edge](edge/README.md), [Mozilla Firefox](firefox/README.md), and [Brave](brave/README.md) documentation pages for manual installation instructions, and explanations for each setting. The browser directories also contain the configuration files, which are either JSON files, [Windows Registry .reg](https://en.wikipedia.org/wiki/Windows_Registry#.REG_files) files for Windows, or [Profile Manager .mobileconfig](https://support.apple.com/guide/profile-manager/distribute-profiles-manually-pmdbd71ebc9/mac) files for macOS.
 
 ## Website
 
