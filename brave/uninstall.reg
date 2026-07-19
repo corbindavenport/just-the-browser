@@ -1,3 +1,5 @@
 Windows Registry Editor Version 5.00
 
 [-HKEY_LOCAL_MACHINE\Software\Policies\BraveSoftware\Brave]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserBrave]

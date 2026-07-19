@@ -15,7 +15,7 @@ Windows Registry Editor Version 5.00
 "BraveWebDiscoveryEnabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\JustTheBrowserBrave]
-"DisplayName"="Just the Browser configuration - Brave Browser
+"DisplayName"="Just the Browser configuration - Brave Browser"
 "URLInfoAbout"="https://justthebrowser.com/"
 "UninstallString"="powershell.exe -Command \"Remove-Item -Path HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave,HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\JustTheBrowserBrave -Recurse -ErrorAction SilentlyContinue\""
 "ModifyPath"="explorer.exe \"https://justthebrowser.com/\""
