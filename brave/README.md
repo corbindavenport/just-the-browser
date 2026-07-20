@@ -26,6 +26,25 @@ To remove the custom configuration, follow the same steps with the [registry fil
 
 To remove the custom configuration, open the Device Management settings (or Profiles pane) again, select the 'Brave Browser settings' configuration, and then click the remove (-) button.
 
+### Linux installation for system package
+
+1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/brave/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "managed_policies.json" (without the quotes).
+2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
+3. Create the managed policies directory with this command:
+```shell
+sudo mkrdir -p /etc/brave/policies/managed
+```
+4. Copy the file to the new folder with this command:
+```shell
+sudo cp ./managed_policies.json /etc/brave/policies/managed
+```
+5. Restart the browser.
+
+To remove the custom configuration, delete the `managed_policies.json` file from the managed policies directory and restart the browser. You can do that with this command:
+```shell
+sudo rm /etc/brave/policies/managed/managed_policies.json
+```
+
 ### Browser settings
 
 These are the policy settings in the Just the Browser configuration file.
@@ -47,6 +66,6 @@ These are the policy settings in the Just the Browser configuration file.
 
 ### Documentation
 
-- [Brave Group policy list](https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy)
+- [Brave Group Policy list](https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy)
 - [Chrome Enterprise policy list](https://chromeenterprise.google/policies/)
 - [Chromium Documentation for Administrators](https://www.chromium.org/administrators/linux-quick-start/)
