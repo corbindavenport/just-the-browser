@@ -30,13 +30,13 @@ The macOS configuration file applies to all versions of Firefox. This includes F
 
 To remove the custom configuration, open the Device Management settings (or Profiles pane) again, select the 'Mozilla Firefox settings' configuration, and then click the remove (-) button.
 
-If there is no Firefox item in the Device Management settings, you may have the older JSON file installed. You can delete the JSON file by opening your Terminal app (`Command+Spacebar` and type "terminal") and pasting this command:
+If there is no Firefox item in the Device Management settings, you may have the older JSON file created by older versions of Just the Browser. You can delete the JSON file by opening your Terminal app (`Command+Spacebar` and type "terminal") and pasting this command:
 
-```bash
+```shell
 sudo rm "/Applications/Firefox.app/Contents/Resources/distribution/policies.json"
 ```
 
-That command will delete the JSON configuration file used by previous versions of Just The Browser, if the file exists.
+If you install Just the Browser again in the future, it will use the newer mobileconfig method.
 
 ### Linux installation for Firefox Flatpak
 
@@ -45,22 +45,22 @@ Follow these instructions if you are using the [Firefox Flatpak package](https:/
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Find your Flatpak architecture and save it as a variable:
-```
+```shell
 FLATPAK_ARCH=$(flatpak --default-arch)
 ```
 4. Create the managed policies directory:
-```
+```shell
 mkdir -p "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies"
 ```
 5. Copy the configuration file to the directory:
-```
+```shell
 cp ./policies.json "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies/"
 ```
 6. Restart the browser.
 
 To remove the custom configuration, delete the `policies.json` file from the managed policies directory and restart the browser. You can do that with these commands:
 
-```
+```shell
 FLATPAK_ARCH=$(flatpak --default-arch)
 rm "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATPAK_ARCH/stable/policies/policies.json"
 ```
@@ -70,17 +70,17 @@ rm "$HOME/.local/share/flatpak/extension/org.mozilla.firefox.systemconfig/$FLATP
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Create the Firefox policies directory with this command:
-```
+```shell
 sudo mkdir -p /etc/firefox/policies/
 ```
 4. Copy the file to the new folder:
-```
+```shell
 sudo cp ./policies.json /etc/firefox/policies/
 ```
 5. Restart Firefox.
 
 To remove the custom configuration, delete the `policies.json` file from the distribution folder and restart Firefox. You can do that with this command:
-```
+```shell
 sudo rm /etc/firefox/policies/policies.json
 ```
 

@@ -4,7 +4,7 @@ title: Google Chrome configuration
 permalink: "chrome/index.html"
 ---
 
-Google Chrome features can be configured with group policies. This project uses Windows Registry settings on Windows, and a Profile Manager file on macOS.
+Google Chrome features can be configured with group policies. This project uses Windows Registry settings on Windows, a Profile Manager file on macOS, and a JSON file for Linux.
 
 You can check which policies are applied in Google Chrome by navigating to the `chrome://policy/` page.
 
@@ -33,22 +33,22 @@ Follow these instructions if you are using the [Chromium Web Browser Flatpak pac
 1. Open the [configuration file](https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/chrome/managed_policies.json) and save it (`Ctrl+S`) anywhere on your computer. Make sure the file is called "managed_policies.json" (without the quotes).
 2. Open a new Terminal window in the directory where the file is located. For example, if it's in your Downloads folder, open a Terminal and run `cd ~/Downloads` to switch to the Downloads directory.
 3. Find your Flatpak architecture and save it as a variable:
-```
+```shell
 FLATPAK_ARCH=$(flatpak --default-arch)
 ```
 4. Create the managed policies directory:
-```
+```shell
 mkdir -p "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/"
 ```
 5. Copy the configuration file to the directory:
-```
+```shell
 cp ./managed_policies.json "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/"
 ```
 6. Restart the browser.
 
 To remove the custom configuration, delete the `managed_policies.json` file from the managed policies directory and restart the browser. You can do that with these commands:
 
-```
+```shell
 FLATPAK_ARCH=$(flatpak --default-arch)
 rm "$HOME/.local/share/flatpak/extension/org.chromium.Chromium.Extension.just-the-browser/$FLATPAK_ARCH/1/policies/managed/managed_policies.json"
 ```
@@ -75,19 +75,19 @@ To remove the custom configuration, delete the `managed_policies.json` file from
 
 **Google Chrome:**
 
-```
+```shell
 sudo rm /etc/opt/chrome/policies/managed/managed_policies.json
 ```
 
 **Chromium in Ubuntu and related distros:**
 
-```
+```shell
 sudo rm /etc/chromium-browser/policies/managed/managed_policies.json
 ```
 
 **For Chromium in other distros:**
 
-```
+```shell
 sudo rm /etc/chromium/policies/managed/managed_policies.json
 ```
 
