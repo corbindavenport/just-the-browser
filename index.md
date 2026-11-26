@@ -128,4 +128,4 @@ The group policy settings used by Just the Browser are intended for PCs managed 
 
 ### Why not just use an alternative web browser?
 
-You can do that! However, switching to alternative web browsers like Vivaldi, SeaMonkey, Waterfox, or LibreWolf can have other downsides. They are not always available on the same platforms, and they can lag behind mainstream browsers in security updates and engine upgrades. Just the Browser aims to make mainstream web browsers more tolerable, while still retaining their existing benefits.
+You can do that! However, switching to alternative web browsers like Vivaldi, SeaMonkey, Waterfox, or LibreWolf comes with plenty of friction. Moving your bookmarks, saved logins, and extensions can be a hassle in itself. They are also not always available on the same platforms, and they can lag behind mainstream browsers in security updates and engine upgrades. Just the Browser aims to make mainstream web browsers more tolerable, while still retaining their existing benefits.
